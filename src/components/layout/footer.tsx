@@ -34,7 +34,7 @@ const footerColumns = [
       { label: "Lab Results", href: "/lab-results" },
       { label: "Sustainability", href: "/about#sustainability" },
       { label: "Press", href: "/about#press" },
-      { label: "Wholesale", href: "/contact?type=wholesale" },
+      { label: "Wholesale", href: "/wholesale" },
       { label: "Affiliate Program", href: "/contact?type=affiliate" },
     ],
   },

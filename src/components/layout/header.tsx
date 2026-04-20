@@ -33,6 +33,7 @@ const navLinks = [
     ],
   },
   { label: "Learn", href: "/learn" },
+  { label: "Wholesale", href: "/wholesale" },
   { label: "Quiz", href: "/quiz" },
   { label: "About", href: "/about" },
 ];
