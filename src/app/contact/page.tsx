@@ -33,7 +33,7 @@ const contactCards = [
   {
     icon: <Mail className="h-5 w-5" />,
     label: 'Email Us',
-    value: 'support@oceanahemp.com',
+    value: 'info@oceanahemp.com',
     sublabel: 'We respond within 24 hours',
     color: 'text-ocean-mid',
     bg: 'bg-ocean-foam',
@@ -41,7 +41,8 @@ const contactCards = [
   {
     icon: <Phone className="h-5 w-5" />,
     label: 'Call Us',
-    value: '1-800-OCEANA',
+    value: '(858) 365-8439',
+    href: 'tel:+18583658439',
     sublabel: 'Mon–Fri 9am–6pm EST',
     color: 'text-hemp-green',
     bg: 'bg-hemp-light',
@@ -253,7 +254,13 @@ export default function ContactPage() {
                         {card.label}
                       </h3>
                       <p className="text-charcoal font-medium mt-1">
-                        {card.value}
+                        {card.href ? (
+                          <a href={card.href} className="hover:text-ocean-mid transition-colors">
+                            {card.value}
+                          </a>
+                        ) : (
+                          card.value
+                        )}
                       </p>
                       <p className="text-sm text-slate mt-0.5">{card.sublabel}</p>
                     </div>
@@ -331,7 +338,7 @@ export default function ContactPage() {
             product for your needs. Don&apos;t hesitate to reach out.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="mailto:support@oceanahemp.com">
+            <a href="mailto:info@oceanahemp.com">
               <Button
                 size="lg"
                 className="bg-white text-ocean-deep hover:bg-ocean-foam font-semibold text-base px-8"
@@ -340,14 +347,14 @@ export default function ContactPage() {
                 Email Us
               </Button>
             </a>
-            <a href="tel:1-800-OCEANA">
+            <a href="tel:+18583658439">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                1-800-OCEANA
+                (858) 365-8439
               </Button>
             </a>
           </div>

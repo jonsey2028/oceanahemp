@@ -30,11 +30,11 @@ interface CartItem {
 const initialItems: CartItem[] = [
   {
     id: 'pet-tincture',
-    name: 'Pet CBD Tincture',
-    price: 29.99,
+    name: 'Pet Full Spectrum CBD Oil',
+    price: 39.95,
     quantity: 1,
     image: '🐕',
-    variant: '250mg · Bacon Flavor',
+    variant: '300mg · Savory Bacon',
   },
   {
     id: 'pain-cream',
@@ -68,11 +68,13 @@ export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>(initialItems);
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
+  const [promoPercent, setPromoPercent] = useState(0);
+  const [promoName, setPromoName] = useState('');
   const [checkoutClicked, setCheckoutClicked] = useState(false);
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = subtotal >= 75 ? 0 : 5.99;
-  const discount = promoApplied ? subtotal * 0.15 : 0;
+  const discount = promoApplied ? subtotal * (promoPercent / 100) : 0;
   const total = subtotal - discount + shipping;
 
   const updateQuantity = (id: string, delta: number) => {
@@ -90,7 +92,18 @@ export default function CartPage() {
   };
 
   const applyPromo = () => {
-    if (promoCode.trim().toUpperCase() === 'OCEANA15') {
+    const code = promoCode.trim().toUpperCase();
+    if (code === 'WELCOME20') {
+      setPromoPercent(20);
+      setPromoName('WELCOME20');
+      setPromoApplied(true);
+    } else if (code === 'HONOR10') {
+      setPromoPercent(10);
+      setPromoName('HONOR10');
+      setPromoApplied(true);
+    } else if (code === 'OCEANA15') {
+      setPromoPercent(15);
+      setPromoName('OCEANA15');
       setPromoApplied(true);
     }
   };
@@ -271,7 +284,7 @@ export default function CartPage() {
 
                       {promoApplied && (
                         <div className="flex justify-between text-hemp-green">
-                          <span>OCEANA15 (15% off)</span>
+                          <span>{promoName} ({promoPercent}% off)</span>
                           <span className="font-medium">-${discount.toFixed(2)}</span>
                         </div>
                       )}
@@ -314,7 +327,7 @@ export default function CartPage() {
                     {promoApplied && (
                       <p className="mt-2 text-sm font-medium text-hemp-green flex items-center gap-1">
                         <ShieldCheck className="h-3.5 w-3.5" />
-                        OCEANA15 applied! 15% off your order.
+                        {promoName} applied! {promoPercent}% off your order.
                       </p>
                     )}
                   </div>

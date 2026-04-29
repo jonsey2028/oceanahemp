@@ -1,7 +1,7 @@
 import type { Product, Review } from "@/types/product";
 
 const IMG = {
-  pets: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&h=600&fit=crop",
+  pets: "/products/pet-tincture.jpg",
   topical: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=600&fit=crop",
 };
 
@@ -9,20 +9,18 @@ export const mockProducts: Product[] = [
   {
     id: "1",
     handle: "pet-cbd-tincture",
-    title: "Pet CBD Tincture — Unflavored",
+    title: "Pet Full Spectrum CBD Oil — Savory Bacon",
     description:
-      "Give your furry family members the same premium CBD you enjoy. Our unflavored pet tincture is easy to add to food or drop directly in the mouth. 10mg per mL, formulated specifically for dogs and cats with pet-safe ingredients.",
-    shortDescription: "10mg/mL unflavored CBD tincture for dogs & cats",
-    price: 29.99,
+      "Give your furry family members the same premium CBD you enjoy. Our savory bacon-flavored full spectrum tincture is easy to add to food or drop directly in the mouth. 300mg cannabinoids per 30mL bottle (10mg/mL), formulated specifically for small breed dogs and cats with organic ingredients. Supports hip & joint mobility, relaxation, immunity, and everyday wellness.",
+    shortDescription: "300mg full spectrum CBD oil for small breed dogs & cats — savory bacon flavor",
+    price: 39.95,
     images: [
-      { url: IMG.pets, alt: "OceanaHemp Pet CBD Tincture - Unflavored" },
+      { url: IMG.pets, alt: "OceanaHemp Pet Full Spectrum CBD Oil — Savory Bacon" },
     ],
     benefit: "pets",
     form: "pet",
     variants: [
-      { id: "1-300", title: "300mg (Small Pets)", price: 29.99, available: true },
-      { id: "1-600", title: "600mg (Medium Pets)", price: 44.99, available: true },
-      { id: "1-1200", title: "1200mg (Large Pets)", price: 64.99, available: true },
+      { id: "1-300", title: "300mg Small Breed (30mL)", price: 39.95, available: true },
     ],
     rating: 4.9,
     reviewCount: 421,
@@ -30,10 +28,13 @@ export const mockProducts: Product[] = [
     subscriptionDiscount: 25,
     badge: "Best Seller",
     ingredients: [
-      "Broad Spectrum CBD Extract",
-      "Organic MCT Oil (Coconut-derived)",
+      "Oceana Hemp Flower Extract (Full Spectrum, 300mg cannabinoids)",
+      "Organic MCT Oil",
+      "Vegetarian Certified Bacon Flavoring",
+      "Cannabidiol (CBD) 80mg/min",
+      "Secondary Cannabinoids 80mg/min",
     ],
-    usage: "Add to food or drop directly in mouth. Small pets: 0.25mL. Medium: 0.5mL. Large: 1mL. Start low, go slow.",
+    usage: "Serving size: 2 drops (0.1mL). 150 servings per bottle. Add to food or drop directly in mouth. Start low, go slow.",
   },
   {
     id: "2",

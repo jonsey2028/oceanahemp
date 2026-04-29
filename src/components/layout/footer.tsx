@@ -89,14 +89,21 @@ export function Footer() {
                 OceanaHemp
               </span>
             </Link>
-            <p className="text-sm text-white/70 mb-6 max-w-xs">
+            <p className="text-sm text-white/70 mb-4 max-w-xs">
               Premium, organically grown CBD products crafted for your wellness
               journey. From ocean to you.
+            </p>
+            <p className="text-xs text-white/50 mb-6">
+              <a href="tel:+18583658439" className="hover:text-white/80 transition-colors">(858) 365-8439</a>
+              {' · '}
+              <a href="mailto:info@oceanahemp.com" className="hover:text-white/80 transition-colors">info@oceanahemp.com</a>
+              {' · '}
+              <a href="mailto:sales@oceanahemp.com" className="hover:text-white/80 transition-colors">sales@oceanahemp.com</a>
             </p>
             {/* Email signup */}
             <div className="space-y-2">
               <p className="text-sm font-medium">
-                Get 15% off + weekly wellness tips
+                Get 20% off your first order + weekly wellness tips
               </p>
               <form className="flex gap-2">
                 <Input
