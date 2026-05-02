@@ -10,8 +10,7 @@ const goals = [
   { label: "Pain Relief", emoji: "💪" },
   { label: "Stress & Calm", emoji: "😌" },
   { label: "Better Sleep", emoji: "😴" },
-  { label: "Focus & Clarity", emoji: "🧠" },
-  { label: "Pet Wellness", emoji: "🐾" },
+  { label: "Skincare", emoji: "✨" },
   { label: "General Wellness", emoji: "🌿" },
 ];
 
@@ -22,10 +21,8 @@ const experienceLevels = [
 ];
 
 const forms = [
-  { label: "Tincture / Oil", emoji: "💧" },
-  { label: "Gummies / Edibles", emoji: "🍬" },
-  { label: "Topical / Cream", emoji: "🧴" },
-  { label: "Softgel / Capsule", emoji: "💊" },
+  { label: "Massage Oil", emoji: "💧" },
+  { label: "Face Spray", emoji: "🌊" },
   { label: "No Preference", emoji: "🤷" },
 ];
 
@@ -46,32 +43,32 @@ type ResultInfo = {
 };
 
 function getResult(goal: string): ResultInfo {
-  if (goal === "Pet Wellness") {
+  if (goal === "Stress & Calm" || goal === "General Wellness") {
     return {
-      name: "Pet CBD Tincture",
-      tagline: "Gentle wellness for your furry family member",
+      name: "Full Spectrum Massage Oil",
+      tagline: "Melt away tension naturally",
       description:
-        "Specially formulated for pets with pet-safe ingredients, bacon flavor they love, and precise dosing for dogs and cats of all sizes. Third-party tested and THC-free.",
-      emoji: "🐾",
-      href: "/shop/pet-cbd-tincture",
+        "Full spectrum CBD massage oil crafted from organically grown hemp. Absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients, no fillers — just pure relief.",
+      emoji: "🧘",
+      href: "/shop/full-spectrum-massage-oil",
       features: [
-        "Pet-safe formula",
-        "Bacon flavored",
-        "THC-free",
-        "Precise dropper dosing",
+        "Full spectrum CBD",
+        "Organic botanicals",
+        "Deep muscle relief",
+        "3rd party lab tested",
       ],
     };
   }
   return {
-    name: "CBD Pain Cream",
-    tagline: "Targeted relief exactly where you need it",
+    name: "Water-Soluble CBD Face Spray",
+    tagline: "Your skin deserves better",
     description:
-      "Our bestselling topical delivers fast-acting, cooling relief to sore muscles and joints. Made with organic hemp extract, menthol, and arnica — no greasy residue.",
-    emoji: "💪",
-    href: "/shop/cbd-pain-cream",
+      "A refreshing face mist that actually does something. Water-soluble CBD delivers cannabinoids where your skin needs them most — no greasy residue, no heavy feel, no nonsense.",
+    emoji: "✨",
+    href: "/shop/water-soluble-cbd-face-spray",
     features: [
-      "Fast-acting cooling relief",
-      "Organic hemp extract",
+      "Water-soluble CBD",
+      "Hyaluronic acid & vitamin C",
       "Non-greasy formula",
       "3rd party lab tested",
     ],

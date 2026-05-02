@@ -41,8 +41,8 @@ const particles = Array.from({ length: 30 }, (_, i) => ({
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  const petProduct = mockProducts.find((p) => p.benefit === "pets")!;
-  const recoveryProduct = mockProducts.find((p) => p.benefit === "recovery")!;
+  const relaxationProduct = mockProducts.find((p) => p.benefit === "relaxation")!;
+  const skincareProduct = mockProducts.find((p) => p.benefit === "skincare")!;
 
   return (
     <div>
@@ -124,17 +124,17 @@ export default function Home() {
             <div className="text-white space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm">
                 <Leaf className="h-4 w-4" />
-                <span>Organically Grown · Lab Tested · THC Compliant</span>
+                <span>Full Spectrum · Lab Tested · Zero Compromises</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Premium CBD for
+                The Ocean Doesn&apos;t
                 <br />
-                <span className="text-ocean-foam">Your Whole Family</span>
+                <span className="text-ocean-foam">Neither Do We.</span>
               </h1>
               <p className="text-lg text-white/80 max-w-lg leading-relaxed">
-                From soothing relief for sore muscles to gentle wellness for
-                your furry companions — pure, potent CBD crafted with care
-                from ocean to you.
+                Every Oceana product is a promise — the finest hemp, the
+                purest extracts, the most effective formulations we know how
+                to make.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/shop">
@@ -152,7 +152,7 @@ export default function Home() {
                     variant="outline"
                     className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8"
                   >
-                    Find Your CBD
+                    Take the Quiz
                   </Button>
                 </Link>
               </div>
@@ -171,7 +171,7 @@ export default function Home() {
               {/* glow behind */}
               <div className="absolute w-80 h-80 bg-white/10 rounded-full blur-3xl" />
 
-              {/* back card (recovery product) — tilted left */}
+              {/* back card (skincare product) — tilted left */}
               <motion.div
                 className="absolute left-4 top-8 z-0"
                 initial={{ rotate: -8, opacity: 0, y: 30 }}
@@ -180,20 +180,20 @@ export default function Home() {
               >
                 <div className="w-56 h-72 rounded-2xl overflow-hidden bg-white shadow-2xl shadow-ocean-deep/30 border border-white/40 relative group">
                   <Image
-                    src={recoveryProduct.images[0].url}
-                    alt={recoveryProduct.images[0].alt}
+                    src={skincareProduct.images[0].url}
+                    alt={skincareProduct.images[0].alt}
                     fill
                     sizes="224px"
                     className="object-cover"
                   />
                   {/* badge */}
                   <div className="absolute top-3 left-3 bg-ocean-deep/90 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-lg">
-                    Fan Favorite
+                    New
                   </div>
                 </div>
               </motion.div>
 
-              {/* front card (pet product) — tilted right, overlapping */}
+              {/* front card (relaxation product) — tilted right, overlapping */}
               <motion.div
                 className="absolute right-8 bottom-4 z-10"
                 initial={{ rotate: 6, opacity: 0, y: 30 }}
@@ -202,8 +202,8 @@ export default function Home() {
               >
                 <div className="w-56 h-72 rounded-2xl overflow-hidden bg-white shadow-2xl shadow-hemp-green/30 border border-white/40 relative group">
                   <Image
-                    src={petProduct.images[0].url}
-                    alt={petProduct.images[0].alt}
+                    src={relaxationProduct.images[0].url}
+                    alt={relaxationProduct.images[0].alt}
                     fill
                     sizes="224px"
                     className="object-cover"
@@ -252,8 +252,8 @@ export default function Home() {
               Our Products
             </h2>
             <p className="mt-3 text-slate text-lg max-w-2xl mx-auto">
-              Two premium formulas, one mission — bring relief and wellness
-              to every member of your family.
+              Two premium formulas, one conviction — your wellness deserves
+              better than mediocre.
             </p>
           </div>
 
@@ -387,11 +387,11 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5">
-              <p className="font-heading text-3xl sm:text-4xl font-bold">10,000+</p>
-              <p className="text-sm text-white/80 mt-1">Customers</p>
+              <p className="font-heading text-3xl sm:text-4xl font-bold">500+</p>
+              <p className="text-sm text-white/80 mt-1">Happy Customers</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5">
-              <p className="font-heading text-3xl sm:text-4xl font-bold">50,000+</p>
+              <p className="font-heading text-3xl sm:text-4xl font-bold">1,000+</p>
               <p className="text-sm text-white/80 mt-1">Bottles Sold</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5">
@@ -399,8 +399,8 @@ export default function Home() {
               <p className="text-sm text-white/80 mt-1">Average Rating</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5">
-              <p className="font-heading text-3xl sm:text-4xl font-bold">99%</p>
-              <p className="text-sm text-white/80 mt-1">Would Recommend</p>
+              <p className="font-heading text-3xl sm:text-4xl font-bold">25+</p>
+              <p className="text-sm text-white/80 mt-1">Lab Tests{"\n"}Per Batch</p>
             </div>
           </div>
         </div>
@@ -440,7 +440,7 @@ export default function Home() {
               Real People, Real Results
             </h2>
             <p className="mt-3 text-slate text-lg">
-              Thousands of happy customers — and their pets — agree.
+              Thousands of happy customers agree.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">

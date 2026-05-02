@@ -8,12 +8,8 @@ const footerColumns = [
     title: "Shop",
     links: [
       { label: "All Products", href: "/shop" },
-      { label: "CBD Gummies", href: "/shop?form=gummies" },
-      { label: "CBD Oils", href: "/shop?form=oils" },
-      { label: "CBD Topicals", href: "/shop?form=topicals" },
-      { label: "CBD Capsules", href: "/shop?form=capsules" },
-      { label: "Pet CBD", href: "/shop?form=pet" },
-      { label: "Bundles", href: "/bundles" },
+      { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },
+      { label: "Face Spray", href: "/shop/water-soluble-cbd-face-spray" },
     ],
   },
   {
@@ -35,7 +31,6 @@ const footerColumns = [
       { label: "Sustainability", href: "/about#sustainability" },
       { label: "Press", href: "/about#press" },
       { label: "Wholesale", href: "/wholesale" },
-      { label: "Affiliate Program", href: "/contact?type=affiliate" },
     ],
   },
   {
@@ -45,7 +40,6 @@ const footerColumns = [
       { label: "Shipping & Returns", href: "/about/faq#shipping" },
       { label: "Contact Us", href: "/contact" },
       { label: "Subscribe & Save", href: "/about/faq#subscribe" },
-      { label: "Military Discount", href: "/about/faq#military" },
       { label: "Privacy Policy", href: "/privacy" },
     ],
   },
@@ -90,10 +84,10 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-white/70 mb-4 max-w-xs">
-              Premium, organically grown CBD products crafted for your wellness
-              journey. From ocean to you.
+              Pure hemp products that actually work. No compromises, no shortcuts, no BS.
             </p>
             <p className="text-xs text-white/50 mb-6">
+              San Diego, CA ·{" "}
               <a href="tel:+18583658439" className="hover:text-white/80 transition-colors">(858) 365-8439</a>
               {' · '}
               <a href="mailto:info@oceanahemp.com" className="hover:text-white/80 transition-colors">info@oceanahemp.com</a>

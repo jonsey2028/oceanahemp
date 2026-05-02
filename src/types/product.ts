@@ -1,5 +1,5 @@
-export type Benefit = "sleep" | "calm" | "recovery" | "focus" | "daily" | "pets";
-export type ProductForm = "gummies" | "oils" | "topicals" | "capsules" | "pet";
+export type Benefit = "relaxation" | "skincare";
+export type ProductForm = "oils" | "sprays";
 
 export interface ProductImage {
   url: string;

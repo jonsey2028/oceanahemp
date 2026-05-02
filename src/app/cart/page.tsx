@@ -29,20 +29,20 @@ interface CartItem {
 
 const initialItems: CartItem[] = [
   {
-    id: 'pet-tincture',
-    name: 'Pet Full Spectrum CBD Oil',
-    price: 39.95,
-    quantity: 1,
-    image: '🐕',
-    variant: '300mg · Savory Bacon',
-  },
-  {
-    id: 'pain-cream',
-    name: 'CBD Pain Relief Cream',
+    id: 'massage-oil',
+    name: 'Full Spectrum Massage Oil',
     price: 49.99,
     quantity: 1,
-    image: '🧴',
-    variant: '500mg · Cooling Mint',
+    image: '🧘',
+    variant: '4 oz · 500mg',
+  },
+  {
+    id: 'face-spray',
+    name: 'Water-Soluble CBD Face Spray',
+    price: 39.99,
+    quantity: 1,
+    image: '✨',
+    variant: '2 oz · 250mg',
   },
 ];
 

@@ -7,25 +7,31 @@ const values = [
     emoji: "💎",
     title: "Purity",
     description:
-      "Every drop of our CBD is third-party lab tested for potency and purity. We never use synthetic ingredients, fillers, or harmful additives — just nature at its finest.",
+      "We never dilute, never cut, never settle. If it's not the purest form available, it doesn't leave our facility.",
+  },
+  {
+    emoji: "🤝",
+    title: "Integrity",
+    description:
+      "What's on the label is what's in the bottle. No fillers, no misleading claims, no fine print. We'd rather lose a sale than your trust.",
+  },
+  {
+    emoji: "⚡",
+    title: "Effectiveness",
+    description:
+      "We make products that work. Period. Every formulation is backed by rigorous testing because results aren't optional — they're the whole point.",
   },
   {
     emoji: "🔍",
     title: "Transparency",
     description:
-      "From farm to bottle, we share every detail. Scan any product's QR code for full lab results, sourcing info, and manufacturing practices. No secrets, ever.",
+      "Full-lab results, honest sourcing, clear communication. You should know exactly what you're putting in your body and where it came from.",
   },
   {
-    emoji: "🌱",
-    title: "Sustainability",
+    emoji: "🌊",
+    title: "Community",
     description:
-      "Our hemp is organically grown on American family farms using regenerative practices. We use biodegradable packaging and offset our carbon footprint with every shipment.",
-  },
-  {
-    emoji: "🤝",
-    title: "Compassion",
-    description:
-      "Wellness isn't just for humans — it's for every member of the family, including your pets. We craft gentle, effective formulas so everyone can thrive naturally.",
+      "From the smoke shop down the street to the tribal nations we partner with — we grow together. Our success is shared success.",
   },
 ];
 
@@ -58,31 +64,11 @@ const sustainabilityPractices = [
 
 const team = [
   {
-    name: "Dr. Marina Torres",
-    role: "Founder & CEO",
-    bio: "Marine biologist turned CBD advocate. Dr. Torres founded OceanaHemp after seeing the healing potential of hemp while studying coastal ecosystems. She holds a PhD from Scripps Institution of Oceanography.",
-    initials: "MT",
+    name: "Kerry Jones",
+    role: "Founder",
+    bio: "San Diego native who started OceanaHemp with one conviction — people deserve hemp products that actually work. No investors, no corporate board, no compromises. Just pure, proven products from someone who stakes their name on every bottle.",
+    initials: "KJ",
   },
-  {
-    name: "James Calloway",
-    role: "Head of Product",
-    bio: " Former herbalist with 15 years of botanical extraction experience. James oversees every formula, ensuring each product delivers consistent, efficacious results.",
-    initials: "JC",
-  },
-  {
-    name: "Ava Chen",
-    role: "Chief Sustainability Officer",
-    bio: "Environmental scientist and circular economy expert. Ava ensures OceanaHemp operates with the lightest possible footprint while maximizing positive impact.",
-    initials: "AC",
-  },
-];
-
-const pressLogos = [
-  "Wellness Weekly",
-  "Green Living Today",
-  "Coastal Health Journal",
-  "Natural Products Insider",
-  "Pet Wellness Magazine",
 ];
 
 export default function AboutPage() {
@@ -94,15 +80,14 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm text-white/90 mb-6">
             <Leaf className="h-4 w-4" />
-            <span>Est. 2020 · Organically Grown · Lab Tested</span>
+            <span>Organically Grown · Lab Tested · Zero Compromises</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Our Story
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Born from the ocean and rooted in the earth, OceanaHemp was
-            founded on a simple belief — everyone deserves access to pure,
-            honest, effective CBD wellness.
+            We make the purest hemp products we know how. If they weren't
+            the best, we wouldn't sell them.
           </p>
         </div>
       </section>
@@ -123,7 +108,7 @@ export default function AboutPage() {
             <p className="mt-4 text-lg text-slate leading-relaxed">
               OceanaHemp exists to set the standard: organically farmed,
               rigorously tested, honestly labeled CBD products that actually
-              work — so you and your pets can feel the difference nature
+              work — so you can feel the difference nature
               intended.
             </p>
           </div>
@@ -171,11 +156,11 @@ export default function AboutPage() {
               Our Values
             </h2>
             <p className="mt-3 text-slate text-lg max-w-2xl mx-auto">
-              Four pillars that guide every product, every decision, every
+              Five pillars that guide every product, every decision, every
               day.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {values.map((value) => (
               <div
                 key={value.title}
@@ -230,25 +215,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── PRESS ─── */}
-      <section id="press" className="py-16 lg:py-20 bg-white border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-slate tracking-widest uppercase mb-8">
-            As Featured In
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {pressLogos.map((name) => (
-              <div
-                key={name}
-                className="flex items-center justify-center h-12 px-6 bg-sand rounded-lg text-slate font-heading font-bold text-lg opacity-60 hover:opacity-100 transition-opacity"
-              >
-                {name}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ─── TEAM ─── */}
       <section className="py-16 lg:py-24 bg-sand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -257,11 +223,11 @@ export default function AboutPage() {
               The People Behind the Brand
             </h2>
             <p className="mt-3 text-slate text-lg max-w-2xl mx-auto">
-              Passionate experts united by a love of nature, wellness, and
-              honest business.
+              No corporate board, no investors calling the shots — just one
+              person who stakes their name on every bottle.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="max-w-md mx-auto">
             {team.map((member) => (
               <div
                 key={member.name}

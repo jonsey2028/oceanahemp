@@ -1,101 +1,98 @@
 import type { Product, Review } from "@/types/product";
 
 const IMG = {
-  pets: "/products/pet-tincture.jpg",
-  topical: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=600&fit=crop",
+  massageOil: "/products/massage-oil.jpg",
+  faceSpray: "/products/face-spray.jpg",
 };
 
 export const mockProducts: Product[] = [
   {
     id: "1",
-    handle: "pet-cbd-tincture",
-    title: "Pet Full Spectrum CBD Oil — Savory Bacon",
+    handle: "full-spectrum-massage-oil",
+    title: "Full Spectrum Massage Oil",
     description:
-      "Give your furry family members the same premium CBD you enjoy. Our savory bacon-flavored full spectrum tincture is easy to add to food or drop directly in the mouth. 300mg cannabinoids per 30mL bottle (10mg/mL), formulated specifically for small breed dogs and cats with organic ingredients. Supports hip & joint mobility, relaxation, immunity, and everyday wellness.",
-    shortDescription: "300mg full spectrum CBD oil for small breed dogs & cats — savory bacon flavor",
-    price: 39.95,
+      "Melt away tension with our full spectrum CBD massage oil. Crafted from organically grown hemp and infused with soothing botanicals, this oil absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients. No fillers. Just pure, potent relief that actually works.",
+    shortDescription: "Full spectrum CBD massage oil for deep relaxation & muscle relief",
+    price: 49.99,
     images: [
-      { url: IMG.pets, alt: "OceanaHemp Pet Full Spectrum CBD Oil — Savory Bacon" },
+      { url: IMG.massageOil, alt: "OceanaHemp Full Spectrum Massage Oil" },
     ],
-    benefit: "pets",
-    form: "pet",
+    benefit: "relaxation",
+    form: "oils",
     variants: [
-      { id: "1-300", title: "300mg Small Breed (30mL)", price: 39.95, available: true },
+      { id: "1-4oz", title: "4 oz (500mg)", price: 49.99, available: true },
     ],
     rating: 4.9,
-    reviewCount: 421,
+    reviewCount: 127,
     subscriptionAvailable: true,
     subscriptionDiscount: 25,
     badge: "Best Seller",
     ingredients: [
-      "Oceana Hemp Flower Extract (Full Spectrum, 300mg cannabinoids)",
+      "Oceana Hemp Full Spectrum Extract (500mg cannabinoids)",
       "Organic MCT Oil",
-      "Vegetarian Certified Bacon Flavoring",
-      "Cannabidiol (CBD) 80mg/min",
-      "Secondary Cannabinoids 80mg/min",
+      "Organic Arnica Montana",
+      "Organic Lavender Essential Oil",
+      "Vitamin E",
     ],
-    usage: "Serving size: 2 drops (0.1mL). 150 servings per bottle. Add to food or drop directly in mouth. Start low, go slow.",
+    usage: "Apply generously to areas of tension. Massage in circular motions until absorbed. Use as needed.",
   },
   {
     id: "2",
-    handle: "cbd-pain-cream",
-    title: "CBD Pain Relief Cream — Cool Mint",
+    handle: "water-soluble-cbd-face-spray",
+    title: "Water-Soluble CBD Face Spray",
     description:
-      "Target sore muscles and joint discomfort with our fast-acting cool mint pain cream. 500mg broad-spectrum CBD combined with menthol, arnica, and camphor for penetrating relief exactly where you need it. Non-greasy, fast-absorbing formula.",
-    shortDescription: "500mg CBD cream with menthol & arnica for targeted pain relief",
-    price: 49.99,
+      "A refreshing face mist that actually does something. Our water-soluble CBD formula delivers cannabinoids where your skin needs them most — no greasy residue, no heavy feel, no nonsense. Spray it on after cleansing, before makeup, or anytime you need a reset. Your skin deserves better than empty promises.",
+    shortDescription: "Water-soluble CBD face mist for refreshed, nourished skin",
+    price: 39.99,
     images: [
-      { url: IMG.topical, alt: "OceanaHemp CBD Pain Relief Cream - Cool Mint" },
+      { url: IMG.faceSpray, alt: "OceanaHemp Water-Soluble CBD Face Spray" },
     ],
-    benefit: "recovery",
-    form: "topicals",
+    benefit: "skincare",
+    form: "sprays",
     variants: [
-      { id: "2-2oz", title: "2 oz (500mg)", price: 49.99, available: true },
-      { id: "2-4oz", title: "4 oz (1000mg)", price: 79.99, available: true },
+      { id: "2-2oz", title: "2 oz (250mg)", price: 39.99, available: true },
     ],
-    rating: 4.7,
-    reviewCount: 634,
+    rating: 4.8,
+    reviewCount: 89,
     subscriptionAvailable: true,
-    subscriptionDiscount: 25,
-    badge: "Fan Favorite",
+    subscriptionDiscount: 20,
+    badge: "New",
     ingredients: [
-      "Broad Spectrum CBD Extract (500mg)",
-      "Menthol (1.5%)",
-      "Arnica Montana Extract",
-      "Camphor",
-      "Shea Butter",
+      "Water-Soluble CBD Extract (250mg cannabinoids)",
+      "Purified Water",
       "Aloe Vera",
+      "Witch Hazel",
+      "Hyaluronic Acid",
+      "Vitamin C",
     ],
-    usage: "Apply generously to affected area. Massage until fully absorbed. Reapply every 4-6 hours.",
+    usage: "Mist onto clean face from 6 inches away. Let absorb naturally. Use morning and night, or anytime you need a refresh.",
   },
 ];
-
-export const mockBundles: unknown[] = [];
 
 export const benefitConfig: Record<
   string,
   { label: string; icon: string; tagline: string; description: string; color: string }
 > = {
-  recovery: {
-    label: "Recovery",
-    icon: "💪",
-    tagline: "Bounce back faster",
-    description: "Target sore muscles and joint discomfort with CBD + menthol, turmeric, and arnica for powerful relief.",
-    color: "from-hemp-green to-emerald-600",
+  relaxation: {
+    label: "Relaxation",
+    icon: "🧘",
+    tagline: "Unwind naturally",
+    description: "Full spectrum CBD massage oil crafted to melt away tension and help you find your calm.",
+    color: "from-ocean-mid to-hemp-green",
   },
-  pets: {
-    label: "Pet Wellness",
-    icon: "🐾",
-    tagline: "For your furry family",
-    description: "CBD formulated specifically for dogs and cats — unflavored tinctures they'll love.",
-    color: "from-coral to-red-500",
+  skincare: {
+    label: "Skincare",
+    icon: "✨",
+    tagline: "Your skin deserves better",
+    description: "Water-soluble CBD face spray that nourishes, refreshes, and protects — no greasy residue, no nonsense.",
+    color: "from-coral to-amber-400",
   },
 };
 
 export const mockReviews: Review[] = [
-  { id: "r1", author: "Maria L.", rating: 5, title: "My dog loves this tincture!", body: "My 10-year-old golden retriever has so much more energy since starting on the CBD tincture. So easy to add to her food!", date: "2026-03-02", verified: true },
-  { id: "r2", author: "David K.", rating: 4, title: "Great for post-gym recovery", body: "The pain cream is legit. I apply it after every workout and the soreness is way down. Took one star off because I wish the tube was bigger!", date: "2026-02-28", verified: true },
-  { id: "r3", author: "Sarah M.", rating: 5, title: "Finally, real relief", body: "I've tried so many creams and this is the only one that actually helps my knee pain. The menthol is so soothing.", date: "2026-03-15", verified: true },
+  { id: "r1", author: "Maria L.", rating: 5, title: "Best massage oil I've ever used", body: "I use this after every stressful day. The lavender and arnica combination is incredible — my shoulders finally let go. Worth every penny.", date: "2026-03-02", verified: true },
+  { id: "r2", author: "David K.", rating: 5, title: "Finally, real relaxation", body: "This massage oil absorbs so well and actually works. No greasy residue, just deep relief. I've already subscribed.", date: "2026-02-28", verified: true },
+  { id: "r3", author: "Sarah M.", rating: 5, title: "My skin has never looked better", body: "The face spray is a game changer. I mist it on after cleansing and before moisturizer. My skin feels hydrated and calm, not tight or greasy.", date: "2026-03-15", verified: true },
 ];
 
 export function getProductsByBenefit(benefit: string): Product[] {

@@ -44,7 +44,7 @@ export default async function ShopPage({ searchParams }: Props) {
           <p className="mt-3 text-slate text-lg max-w-2xl">
             {benefitFilter
               ? benefitConfig[benefitFilter]?.description
-              : "Premium, lab-tested CBD crafted with care for your wellness and your pets."}
+              : "Premium, lab-tested CBD crafted with care — no compromises, no shortcuts."}
           </p>
         </div>
       </section>
@@ -66,56 +66,56 @@ export default async function ShopPage({ searchParams }: Props) {
                 All
               </Button>
             </Link>
-            <Link href="/shop?form=pet">
+            <Link href="/shop?form=oils">
               <Button
-                variant={formFilter === "pet" ? "default" : "ghost"}
+                variant={formFilter === "oils" ? "default" : "ghost"}
                 size="sm"
                 className={
-                  formFilter === "pet"
+                  formFilter === "oils"
                     ? "bg-ocean-mid text-white"
                     : "text-slate"
                 }
               >
-                🐾 Pet CBD
+                💧 Massage Oil
               </Button>
             </Link>
-            <Link href="/shop?form=topicals">
+            <Link href="/shop?form=sprays">
               <Button
-                variant={formFilter === "topicals" ? "default" : "ghost"}
+                variant={formFilter === "sprays" ? "default" : "ghost"}
                 size="sm"
                 className={
-                  formFilter === "topicals"
+                  formFilter === "sprays"
                     ? "bg-ocean-mid text-white"
                     : "text-slate"
                 }
               >
-                💪 Topicals
+                ✨ Face Spray
               </Button>
             </Link>
-            <Link href="/shop?benefit=pets">
+            <Link href="/shop?benefit=relaxation">
               <Button
-                variant={benefitFilter === "pets" ? "default" : "ghost"}
+                variant={benefitFilter === "relaxation" ? "default" : "ghost"}
                 size="sm"
                 className={
-                  benefitFilter === "pets"
+                  benefitFilter === "relaxation"
                     ? "bg-ocean-mid text-white"
                     : "text-slate"
                 }
               >
-                Pet Wellness
+                🧘 Relaxation
               </Button>
             </Link>
-            <Link href="/shop?benefit=recovery">
+            <Link href="/shop?benefit=skincare">
               <Button
-                variant={benefitFilter === "recovery" ? "default" : "ghost"}
+                variant={benefitFilter === "skincare" ? "default" : "ghost"}
                 size="sm"
                 className={
-                  benefitFilter === "recovery"
+                  benefitFilter === "skincare"
                     ? "bg-ocean-mid text-white"
                     : "text-slate"
                 }
               >
-                Recovery
+                ✨ Skincare
               </Button>
             </Link>
           </div>

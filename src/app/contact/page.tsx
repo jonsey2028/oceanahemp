@@ -43,14 +43,14 @@ const contactCards = [
     label: 'Call Us',
     value: '(858) 365-8439',
     href: 'tel:+18583658439',
-    sublabel: 'Mon–Fri 9am–6pm EST',
+    sublabel: 'Mon–Fri 9am–5pm PST',
     color: 'text-hemp-green',
     bg: 'bg-hemp-light',
   },
   {
     icon: <Clock className="h-5 w-5" />,
     label: 'Business Hours',
-    value: 'Mon–Fri 9am–6pm EST',
+    value: 'Mon–Fri 9am–5pm PST',
     sublabel: 'Closed weekends & holidays',
     color: 'text-ocean-deep',
     bg: 'bg-ocean-foam',
@@ -74,9 +74,9 @@ const faqs = [
       'Absolutely. Every batch of OceanaHemp products is tested by independent, ISO-certified laboratories. You can scan the QR code on any product to view its certificate of analysis (COA) with full cannabinoid and contaminant panels.',
   },
   {
-    question: 'Can I give CBD to my pet?',
+    question: 'Do you offer holistic consulting?',
     answer:
-      'Yes! Our Pet CBD Tincture is specifically formulated for dogs and cats with pet-safe carrier oils and flavors. We recommend consulting your veterinarian before starting any new supplement for your pet.',
+      'Yes! In addition to our products, we offer one-on-one holistic wellness consulting. We believe in treating the whole person, not just symptoms. Contact us to schedule a session.',
   },
 ];
 
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     <br />
                     1234 Coastal Highway, Suite 200
                     <br />
-                    Santa Cruz, CA 95060
+                    San Diego, CA
                   </p>
                 </div>
               </div>

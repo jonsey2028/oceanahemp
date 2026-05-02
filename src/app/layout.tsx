@@ -21,15 +21,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "OceanaHemp — Premium CBD for Your Wellness Journey",
   description:
-    "Shop organically grown, lab-tested CBD oils, gummies, topicals & more. Free shipping on $75+. Subscribe & save 25%. 60-day guarantee.",
+    "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+. Subscribe & save. 60-day guarantee.",
   keywords: [
     "CBD",
     "hemp",
     "CBD oil",
-    "CBD gummies",
-    "CBD for sleep",
-    "CBD for anxiety",
-    "CBD for pain",
+    "CBD massage oil",
+    "CBD face spray",
+    "full spectrum CBD",
+    "CBD for relaxation",
+    "CBD for skincare",
     "organic CBD",
     "lab tested CBD",
     "OceanaHemp",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "OceanaHemp — Premium CBD for Your Wellness Journey",
     description:
-      "Shop organically grown, lab-tested CBD oils, gummies, topicals & more. Free shipping on $75+.",
+      "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+.",
     url: "https://oceanahemp.com",
     siteName: "OceanaHemp",
     type: "website",

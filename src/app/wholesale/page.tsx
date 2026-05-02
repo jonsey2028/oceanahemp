@@ -349,7 +349,7 @@ export default function WholesalePage() {
                         Which products are you interested in?
                       </label>
                       <Textarea
-                        placeholder="e.g. Tinctures, gummies, pain cream, roll-ons, capsules, pet products..."
+                        placeholder="e.g. Massage Oil, Face Spray, wellness products..."
                         rows={3}
                         value={formData.productsInterest}
                         onChange={(e) => update('productsInterest', e.target.value)}

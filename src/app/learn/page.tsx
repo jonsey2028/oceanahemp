@@ -40,12 +40,12 @@ const articles = [
     readTime: "5 min read",
   },
   {
-    title: "CBD for Pets",
-    emoji: "🐾",
-    slug: "/learn/cbd-for-pets",
+    title: "CBD for Skincare",
+    emoji: "✨",
+    slug: "/learn/cbd-for-skincare",
     excerpt:
-      "Yes, your furry friends can benefit too! Learn about pet-safe CBD dosing, potential benefits for anxiety and joint health, and what to look for in a pet product.",
-    category: "Pet Wellness",
+      "Your skin deserves better than empty promises. Learn how water-soluble CBD can nourish, protect, and refresh — without the greasy residue.",
+    category: "Skincare",
     readTime: "6 min read",
   },
   {
@@ -78,7 +78,7 @@ export default function LearnPage() {
           <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
             Knowledge is the first step to wellness. Explore our
             expert-written guides, dig into the science, and make confident
-            choices for you and your pets.
+            choices for you.
           </p>
         </div>
       </section>
