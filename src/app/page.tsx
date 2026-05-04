@@ -127,14 +127,14 @@ export default function Home() {
                 <span>Full Spectrum · Lab Tested · Zero Compromises</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                The Ocean Doesn&apos;t
+                The Ocean Demands Purity.
                 <br />
-                <span className="text-ocean-foam">Neither Do We.</span>
+                <span className="text-ocean-foam">So Do We.</span>
               </h1>
               <p className="text-lg text-white/80 max-w-lg leading-relaxed">
                 Every Oceana product is a promise — the finest hemp, the
-                purest extracts, the most effective formulations we know how
-                to make.
+purest extracts, the most effective formulations.
+              
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/shop">

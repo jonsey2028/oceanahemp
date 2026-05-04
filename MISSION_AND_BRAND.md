@@ -29,7 +29,7 @@
 **"We started with a simple conviction: people deserve hemp products that actually work — made from the purest ingredients, tested to the highest standards, and sold with zero BS. That conviction hasn't changed. It never will."**
 
 ### Option 9: Authority
-**"The ocean doesn't compromise. Neither do we. Every Oceana product is a promise — the finest hemp, the purest extracts, the most effective formulations we know how to make. We stake our name on it."**
+**"The ocean demands purity. So do we. Every Oceana product is a promise — the finest hemp, the purest extracts, the most effective formulations. We stake our name on it."**
 
 ### Option 10: Short-Form (for hero section)
 **"Purest ingredients. Proven results. Zero compromises."**
@@ -91,7 +91,7 @@ For B2B materials targeting smoke shops and tribal buyers:
 
 For the main website hero/mission section, I'd go with **Option 9** paired with **Option 10**:
 
-> **"The ocean doesn't compromise. Neither do we."**
+> **"The ocean demands purity. So do we."**
 > 
 > Purest ingredients. Proven results. Zero compromises.
 > 
