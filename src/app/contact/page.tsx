@@ -43,14 +43,14 @@ const contactCards = [
     label: 'Call Us',
     value: '(858) 365-8439',
     href: 'tel:+18583658439',
-    sublabel: 'Mon–Fri 9am–5pm PST',
+    sublabel: 'Mon to Fri 9am to 5pm PST',
     color: 'text-hemp-green',
     bg: 'bg-hemp-light',
   },
   {
     icon: <Clock className="h-5 w-5" />,
     label: 'Business Hours',
-    value: 'Mon–Fri 9am–5pm PST',
+    value: 'Mon to Fri 9am to 5pm PST',
     sublabel: 'Closed weekends & holidays',
     color: 'text-ocean-deep',
     bg: 'bg-ocean-foam',
@@ -61,12 +61,12 @@ const faqs = [
   {
     question: 'How long does shipping take?',
     answer:
-      'Standard shipping takes 3–5 business days within the US. Expedited options are available at checkout for 1–2 day delivery. All orders over $75 ship free!',
+      'Standard shipping takes 3 to 5 business days within the US. Expedited options are available at checkout for 1 to 2 day delivery. All orders over $75 ship free!',
   },
   {
     question: 'What is your return policy?',
     answer:
-      "We offer a 60-day satisfaction guarantee on all products. If you're not completely satisfied, contact us for a full refund or exchange — no questions asked.",
+      "We offer a 60-day satisfaction guarantee on all products. If you're not completely satisfied, contact us for a full refund or exchange, no questions asked.",
   },
   {
     question: 'Are your products third-party lab tested?',
@@ -299,7 +299,7 @@ export default function ContactPage() {
               Frequently Asked Questions
             </h2>
             <p className="mt-3 text-slate text-lg">
-              Quick answers to questions you might have — or{' '}
+              Quick answers to questions you might have, or{' '}
               <a
                 href="#top"
                 className="text-ocean-mid font-medium hover:text-ocean-deep underline underline-offset-4 transition-colors"

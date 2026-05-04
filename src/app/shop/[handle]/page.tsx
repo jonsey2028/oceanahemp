@@ -170,7 +170,7 @@ export default async function ProductPage({ params }: Props) {
                 size="lg"
                 className="w-full bg-ocean-mid hover:bg-ocean-deep text-white font-bold text-base h-14"
               >
-                Add to Cart — ${product.price}
+                Add to Cart ${product.price}
               </Button>
               {product.subscriptionAvailable && (
                 <Button
@@ -178,7 +178,7 @@ export default async function ProductPage({ params }: Props) {
                   variant="outline"
                   className="w-full border-hemp-green text-hemp-green hover:bg-hemp-light font-bold text-base h-14"
                 >
-                  Subscribe & Save {product.subscriptionDiscount}% — $
+                  Subscribe & Save {product.subscriptionDiscount}%: $
                   {subPrice}/mo
                 </Button>
               )}

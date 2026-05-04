@@ -8,7 +8,7 @@ const articles = [
     emoji: "🌿",
     slug: "/learn/what-is-cbd",
     excerpt:
-      "Discover the basics of cannabidiol — what it is, how it works with your body's endocannabinoid system, and why millions are turning to CBD for natural wellness.",
+      "Discover the basics of cannabidiol: what it is, how it works with your body's endocannabinoid system, and why millions are turning to CBD for natural wellness.",
     category: "Fundamentals",
     readTime: "6 min read",
   },
@@ -17,7 +17,7 @@ const articles = [
     emoji: "📊",
     slug: "/learn/cbd-dosage-guide",
     excerpt:
-      "How much CBD should you take? Learn about dosing by weight, desired effect, and experience level — plus tips for finding your perfect amount.",
+      "How much CBD should you take? Learn about dosing by weight, desired effect, and experience level, plus tips for finding your perfect amount.",
     category: "Guides",
     readTime: "8 min read",
   },
@@ -35,7 +35,7 @@ const articles = [
     emoji: "🔬",
     slug: "/learn/full-vs-broad-vs-isolate",
     excerpt:
-      "Not all CBD is created equal. Understand the key differences between full-spectrum, broad-spectrum, and CBD isolate — and which is right for you.",
+      "Not all CBD is created equal. Understand the key differences between full-spectrum, broad-spectrum, and CBD isolate, and which is right for you.",
     category: "Fundamentals",
     readTime: "5 min read",
   },
@@ -53,7 +53,7 @@ const articles = [
     emoji: "✨",
     slug: "/learn/cbd-for-skincare",
     excerpt:
-      "Your skin deserves better than empty promises. Learn how water-soluble CBD can nourish, protect, and refresh — without the greasy residue.",
+      "Your skin deserves better than empty promises. Learn how water-soluble CBD can nourish, protect, and refresh, without the greasy residue.",
     category: "Skincare",
     readTime: "6 min read",
   },
@@ -198,7 +198,7 @@ export default function LearnPage() {
           </h2>
           <p className="mt-4 text-white/80 text-lg leading-relaxed">
             Our wellness team is here to help you find the perfect CBD
-            routine. Reach out anytime — no question is too small.
+            routine. Reach out anytime. No question is too small.
           </p>
           <div className="mt-8">
             <Link href="/contact">

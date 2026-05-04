@@ -19,7 +19,7 @@ const values = [
     emoji: "⚡",
     title: "Effectiveness",
     description:
-      "We make products that work. Period. Every formulation is backed by rigorous testing because results aren't optional — they're the whole point.",
+      "We make products that work. Period. Every formulation is backed by rigorous testing because results aren't optional. They're the whole point.",
   },
   {
     emoji: "🔍",
@@ -31,7 +31,7 @@ const values = [
     emoji: "🌊",
     title: "Community",
     description:
-      "From the smoke shop down the street to the tribal nations we partner with — we grow together. Our success is shared success.",
+      "From the smoke shop down the street to the tribal nations we partner with, we grow together. Our success is shared success.",
   },
 ];
 
@@ -40,7 +40,7 @@ const sustainabilityPractices = [
     icon: <Leaf className="h-6 w-6 text-hemp-green" />,
     title: "Organic Farming",
     description:
-      "100% organically grown hemp on US family farms — no pesticides, no herbicides, no compromise.",
+      "100% organically grown hemp on US family farms. No pesticides, no herbicides, no compromise.",
   },
   {
     icon: <Recycle className="h-6 w-6 text-ocean-mid" />,
@@ -66,7 +66,7 @@ const team = [
   {
     name: "Kerry Jones",
     role: "Founder",
-    bio: "San Diego native who started OceanaHemp with one conviction — people deserve hemp products that actually work. No investors, no corporate board, no compromises. Just pure, proven products from someone who stakes their name on every bottle.",
+    bio: "San Diego native who started OceanaHemp with one conviction: people deserve hemp products that actually work. No investors, no corporate board, no compromises. Just pure, proven products from someone who stakes their name on every bottle.",
     initials: "KJ",
   },
 ];
@@ -86,7 +86,7 @@ export default function AboutPage() {
             Our Story
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            We make the purest hemp products we know how. If they weren't
+            We make the purest hemp products. If they weren't
             the best, we wouldn't sell them.
           </p>
         </div>
@@ -101,14 +101,14 @@ export default function AboutPage() {
             </h2>
             <p className="mt-6 text-lg text-slate leading-relaxed">
               We believe wellness should be pure, transparent, and accessible
-              — for everyone, including your furry family members. Too many
+              for everyone, including your furry family members. Too many
               CBD brands cut corners, obscure their lab results, or ignore
               quality for profit. We're different.
             </p>
             <p className="mt-4 text-lg text-slate leading-relaxed">
               OceanaHemp exists to set the standard: organically farmed,
               rigorously tested, honestly labeled CBD products that actually
-              work — so you can feel the difference nature
+              work. So you can feel the difference nature
               intended.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 Purity
               </h3>
               <p className="mt-2 text-slate text-sm leading-relaxed">
-                No fillers. No synthetics. Only what nature intended —
+                No fillers. No synthetics. Only what nature intended.
                 tested by independent labs.
               </p>
             </div>
@@ -223,7 +223,7 @@ export default function AboutPage() {
               The People Behind the Brand
             </h2>
             <p className="mt-3 text-slate text-lg max-w-2xl mx-auto">
-              No corporate board, no investors calling the shots — just one
+              No corporate board, no investors calling the shots. Just one
               person who stakes their name on every bottle.
             </p>
           </div>

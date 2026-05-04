@@ -66,7 +66,7 @@ function getResult(goal: string): ResultInfo {
       name: "Full Spectrum Massage Oil",
       tagline: "Melt away tension naturally",
       description:
-        "Full spectrum CBD massage oil crafted from organically grown hemp. Absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients, no fillers — just pure relief.",
+        "Full spectrum CBD massage oil crafted from organically grown hemp. Absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients, no fillers, just pure relief.",
       emoji: "🧘",
       href: "/shop/full-spectrum-massage-oil",
       features: [
@@ -81,7 +81,7 @@ function getResult(goal: string): ResultInfo {
     name: "Water-Soluble CBD Face Spray",
     tagline: "Your skin deserves better",
     description:
-      "A refreshing face mist that actually does something. Water-soluble CBD delivers cannabinoids where your skin needs them most — no greasy residue, no heavy feel, no nonsense.",
+      "A refreshing face mist that actually does something. Water-soluble CBD delivers cannabinoids where your skin needs them most, no greasy residue, no heavy feel, no nonsense.",
     emoji: "✨",
     href: "/shop/water-soluble-cbd-face-spray",
     features: [
@@ -247,7 +247,7 @@ export default function QuizPage() {
                 What form do you prefer?
               </h2>
               <p className="text-slate text-center mb-8">
-                Choose how you'd like to take your CBD — or tell us you
+                Choose how you'd like to take your CBD, or tell us you
                 don't mind.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -280,7 +280,7 @@ export default function QuizPage() {
                 What matters most to you?
               </h2>
               <p className="text-slate text-center mb-8">
-                One last question — pick the factor that's most important
+                One last question: pick the factor that's most important
                 in your CBD.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">

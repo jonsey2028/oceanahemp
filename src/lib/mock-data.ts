@@ -12,8 +12,8 @@ export const mockProducts: Product[] = [
     handle: "cbd-pet-tincture",
     title: "Pets Full Spectrum CBD Oil",
     description:
-      "Because your best friend deserves the same quality you'd give yourself. Our full spectrum CBD pet tincture is formulated specifically for dogs and cats — organic ingredients, precise dosing, and savory bacon flavor they actually love. Supports neurology, immunity, hip & joint mobility, relaxation, and everyday wellness.",
-    shortDescription: "Full spectrum CBD pet tincture — calm, joints, immunity, everyday wellness",
+      "Because your best friend deserves the same quality you'd give yourself. Our full spectrum CBD pet tincture is formulated specifically for dogs and cats. organic ingredients, precise dosing, and savory bacon flavor they actually love. Supports neurology, immunity, hip & joint mobility, relaxation, and everyday wellness.",
+    shortDescription: "Full spectrum CBD pet tincture. calm, joints, immunity, everyday wellness",
     price: 40.95,
     images: [
       { url: IMG.petTincture, alt: "OceanaHemp Pets Full Spectrum CBD Oil" },
@@ -42,7 +42,7 @@ export const mockProducts: Product[] = [
     handle: "water-soluble-cbd-face-spray",
     title: "Water-Soluble CBD Face Spray",
     description:
-      "A refreshing face mist that actually does something. Our water-soluble CBD formula delivers cannabinoids where your skin needs them most — no greasy residue, no heavy feel, no nonsense. Spray it on after cleansing, before makeup, or anytime you need a reset. Your skin deserves better than empty promises.",
+      "A refreshing face mist that actually does something. Our water-soluble CBD formula delivers cannabinoids where your skin needs them most, no greasy residue, no heavy feel, no nonsense. Spray it on after cleansing, before makeup, or anytime you need a reset. Your skin deserves better than empty promises.",
     shortDescription: "Water-soluble CBD face mist for refreshed, nourished skin",
     price: 39.99,
     images: [
@@ -108,14 +108,14 @@ export const benefitConfig: Record<
     label: "Pets",
     icon: "🐾",
     tagline: "Because they deserve the best",
-    description: "Full spectrum CBD pet tincture formulated for dogs & cats — calm support joint health and overall wellness.",
+    description: "Full spectrum CBD pet tincture formulated for dogs & cats. calm support joint health and overall wellness.",
     color: "from-amber-400 to-amber-600",
   },
   skincare: {
     label: "Skincare",
     icon: "✨",
     tagline: "Your skin deserves better",
-    description: "Water-soluble CBD face spray that nourishes refreshes and protects — no greasy residue no nonsense.",
+    description: "Water-soluble CBD face spray that nourishes refreshes and protects. no greasy residue no nonsense.",
     color: "from-coral to-amber-400",
   },
   relaxation: {
@@ -128,7 +128,7 @@ export const benefitConfig: Record<
 };
 
 export const mockReviews: Review[] = [
-  { id: "r1", author: "Maria L.", rating: 5, title: "Best massage oil I've ever used", body: "I use this after every stressful day. The lavender and arnica combination is incredible — my shoulders finally let go. Worth every penny.", date: "2026-03-02", verified: true },
+  { id: "r1", author: "Maria L.", rating: 5, title: "Best massage oil I've ever used", body: "I use this after every stressful day. The lavender and arnica combination is incredible. my shoulders finally let go. Worth every penny.", date: "2026-03-02", verified: true },
   { id: "r2", author: "David K.", rating: 5, title: "Finally, real relaxation", body: "This massage oil absorbs so well and actually works. No greasy residue, just deep relief. I've already subscribed.", date: "2026-02-28", verified: true },
   { id: "r3", author: "Sarah M.", rating: 5, title: "My skin has never looked better", body: "The face spray is a game changer. I mist it on after cleansing and before moisturizer. My skin feels hydrated and calm, not tight or greasy.", date: "2026-03-15", verified: true },
 ];

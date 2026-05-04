@@ -120,7 +120,7 @@ export default function Home() {
         {/* hero content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT — text */}
+            {/* LEFT. text */}
             <div className="text-white space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm">
                 <Leaf className="h-4 w-4" />
@@ -132,7 +132,7 @@ export default function Home() {
                 <span className="text-ocean-foam">So Do We.</span>
               </h1>
               <p className="text-lg text-white/80 max-w-lg leading-relaxed">
-                Every Oceana product is a promise — the finest hemp, the
+                Every Oceana product is a promise. the finest hemp, the
 purest extracts, the most effective formulations.
               
               </p>
@@ -166,12 +166,12 @@ purest extracts, the most effective formulations.
               </div>
             </div>
 
-            {/* RIGHT — product showcase */}
+            {/* RIGHT. product showcase */}
             <div className="hidden lg:flex relative items-center justify-center min-h-[480px]">
               {/* glow behind */}
               <div className="absolute w-80 h-80 bg-white/10 rounded-full blur-3xl" />
 
-              {/* back card (skincare product) — tilted left */}
+              {/* back card (skincare product). tilted left */}
               <motion.div
                 className="absolute left-4 top-8 z-0"
                 initial={{ rotate: -8, opacity: 0, y: 30 }}
@@ -193,7 +193,7 @@ purest extracts, the most effective formulations.
                 </div>
               </motion.div>
 
-              {/* front card (pets product) — tilted right, overlapping */}
+              {/* front card (pets product). tilted right, overlapping */}
               <motion.div
                 className="absolute right-8 bottom-4 z-10"
                 initial={{ rotate: 6, opacity: 0, y: 30 }}
@@ -252,7 +252,7 @@ purest extracts, the most effective formulations.
               Our Products
             </h2>
             <p className="mt-3 text-slate text-lg max-w-2xl mx-auto">
-              Two premium formulas, one conviction — your wellness deserves
+              Two premium formulas, one conviction. your wellness deserves
               better than mediocre.
             </p>
           </div>

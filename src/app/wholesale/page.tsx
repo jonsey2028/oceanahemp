@@ -42,12 +42,12 @@ const benefits = [
   {
     icon: <BadgePercent className="h-6 w-6" />,
     title: 'Wholesale Pricing',
-    desc: 'Up to 50% off retail — competitive margins for your business',
+    desc: 'Up to 50% off retail, competitive margins for your business',
   },
   {
     icon: <PackageCheck className="h-6 w-6" />,
     title: 'No Minimum Orders',
-    desc: 'Start small with no MOQ — scale at your own pace',
+    desc: 'Start small with no MOQ. scale at your own pace',
   },
   {
     icon: <Truck className="h-6 w-6" />,
@@ -57,7 +57,7 @@ const benefits = [
   {
     icon: <ShieldCheck className="h-6 w-6" />,
     title: 'Lab Tested',
-    desc: 'Full COAs with every batch — ISO-certified third-party labs',
+    desc: 'Full COAs with every batch, ISO-certified third-party labs',
   },
 ];
 
@@ -390,7 +390,7 @@ export default function WholesalePage() {
             Questions About Wholesale?
           </h2>
           <p className="mt-4 text-white/80 text-lg leading-relaxed">
-            Our wholesale team is ready to help. Reach out anytime — we
+            Our wholesale team is ready to help. Reach out anytime. We
             typically respond within one business day.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">

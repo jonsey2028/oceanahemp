@@ -44,7 +44,7 @@ export default async function ShopPage({ searchParams }: Props) {
           <p className="mt-3 text-slate text-lg max-w-2xl">
             {benefitFilter
               ? benefitConfig[benefitFilter]?.description
-              : "Premium, lab-tested CBD crafted with care — no compromises, no shortcuts."}
+              : "Premium, lab-tested CBD crafted with care, no compromises, no shortcuts."}
           </p>
         </div>
       </section>
