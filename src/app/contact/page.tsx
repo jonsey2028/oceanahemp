@@ -280,9 +280,9 @@ export default function ContactPage() {
                   <p className="text-slate text-sm leading-relaxed">
                     OceanaHemp Inc.
                     <br />
-                    1234 Coastal Highway, Suite 200
+                    1106 2nd St., #126
                     <br />
-                    San Diego, CA
+                    Encinitas, CA 92024
                   </p>
                 </div>
               </div>

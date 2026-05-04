@@ -12,16 +12,18 @@ const navLinks = [
     href: "/shop",
     submenu: [
       { label: "All Products", href: "/shop" },
-      { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },
+      { label: "Pet Tincture", href: "/shop/cbd-pet-tincture" },
       { label: "Face Spray", href: "/shop/water-soluble-cbd-face-spray" },
+      { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },
     ],
   },
   {
     label: "Benefits",
     href: "#",
     submenu: [
-      { label: "Relaxation", href: "/shop?benefit=relaxation" },
+      { label: "Pets", href: "/shop?benefit=pets" },
       { label: "Skincare", href: "/shop?benefit=skincare" },
+      { label: "Relaxation", href: "/shop?benefit=relaxation" },
     ],
   },
   { label: "Learn", href: "/learn" },

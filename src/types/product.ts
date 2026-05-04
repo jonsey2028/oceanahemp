@@ -1,5 +1,5 @@
-export type Benefit = "relaxation" | "skincare";
-export type ProductForm = "oils" | "sprays";
+export type Benefit = "pets" | "skincare" | "relaxation";
+export type ProductForm = "tinctures" | "sprays" | "oils";
 
 export interface ProductImage {
   url: string;

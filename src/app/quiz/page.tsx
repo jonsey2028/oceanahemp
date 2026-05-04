@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 /* ─── Step configs ─── */
 const goals = [
+  { label: "Pet Wellness", emoji: "🐾" },
   { label: "Pain Relief", emoji: "💪" },
   { label: "Stress & Calm", emoji: "😌" },
   { label: "Better Sleep", emoji: "😴" },
@@ -21,6 +22,7 @@ const experienceLevels = [
 ];
 
 const forms = [
+  { label: "Pet Tincture", emoji: "🐾" },
   { label: "Massage Oil", emoji: "💧" },
   { label: "Face Spray", emoji: "🌊" },
   { label: "No Preference", emoji: "🤷" },
@@ -43,6 +45,22 @@ type ResultInfo = {
 };
 
 function getResult(goal: string): ResultInfo {
+  if (goal === "Pet Wellness") {
+    return {
+      name: "Pets Full Spectrum CBD Oil",
+      tagline: "Because they deserve the best",
+      description:
+        "Full spectrum CBD pet tincture formulated specifically for dogs and cats. Organic ingredients, precise dosing, and a savory bacon flavor they actually love. Supports neurology, immunity, hip & joint mobility, relaxation, and everyday wellness.",
+      emoji: "🐾",
+      href: "/shop/cbd-pet-tincture",
+      features: [
+        "Full spectrum CBD",
+        "Organic MCT oil base",
+        "Bacon flavor dogs love",
+        "3rd party lab tested",
+      ],
+    };
+  }
   if (goal === "Stress & Calm" || goal === "General Wellness") {
     return {
       name: "Full Spectrum Massage Oil",

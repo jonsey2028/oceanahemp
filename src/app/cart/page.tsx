@@ -29,12 +29,12 @@ interface CartItem {
 
 const initialItems: CartItem[] = [
   {
-    id: 'massage-oil',
-    name: 'Full Spectrum Massage Oil',
-    price: 49.99,
+    id: 'pet-tincture',
+    name: 'Pets Full Spectrum CBD Oil',
+    price: 40.95,
     quantity: 1,
-    image: '🧘',
-    variant: '4 oz · 500mg',
+    image: '🐾',
+    variant: '1 oz · 300mg Small Breed',
   },
   {
     id: 'face-spray',
@@ -43,6 +43,14 @@ const initialItems: CartItem[] = [
     quantity: 1,
     image: '✨',
     variant: '2 oz · 250mg',
+  },
+  {
+    id: 'massage-oil',
+    name: 'Full Spectrum Massage Oil',
+    price: 49.99,
+    quantity: 1,
+    image: '🧘',
+    variant: '4 oz · 500mg',
   },
 ];
 

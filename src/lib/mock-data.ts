@@ -1,40 +1,41 @@
 import type { Product, Review } from "@/types/product";
 
 const IMG = {
-  massageOil: "/products/massage-oil.jpg",
+  petTincture: "/products/pet-tincture.jpg",
   faceSpray: "/products/face-spray.jpg",
+  massageOil: "/products/massage-oil.jpg",
 };
 
 export const mockProducts: Product[] = [
   {
     id: "1",
-    handle: "full-spectrum-massage-oil",
-    title: "Full Spectrum Massage Oil",
+    handle: "cbd-pet-tincture",
+    title: "Pets Full Spectrum CBD Oil",
     description:
-      "Melt away tension with our full spectrum CBD massage oil. Crafted from organically grown hemp and infused with soothing botanicals, this oil absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients. No fillers. Just pure, potent relief that actually works.",
-    shortDescription: "Full spectrum CBD massage oil for deep relaxation & muscle relief",
-    price: 49.99,
+      "Because your best friend deserves the same quality you'd give yourself. Our full spectrum CBD pet tincture is formulated specifically for dogs and cats — organic ingredients, precise dosing, and savory bacon flavor they actually love. Supports neurology, immunity, hip & joint mobility, relaxation, and everyday wellness.",
+    shortDescription: "Full spectrum CBD pet tincture — calm, joints, immunity, everyday wellness",
+    price: 40.95,
     images: [
-      { url: IMG.massageOil, alt: "OceanaHemp Full Spectrum Massage Oil" },
+      { url: IMG.petTincture, alt: "OceanaHemp Pets Full Spectrum CBD Oil" },
     ],
-    benefit: "relaxation",
-    form: "oils",
+    benefit: "pets",
+    form: "tinctures",
     variants: [
-      { id: "1-4oz", title: "4 oz (500mg)", price: 49.99, available: true },
+      { id: "1-300mg", title: "1 oz (300mg) Small Breed", price: 40.95, available: true },
+      { id: "1-600mg", title: "2 oz (600mg) Medium Breed", price: 54.95, available: true },
+      { id: "1-1000mg", title: "2 oz (1000mg) Large Breed", price: 69.95, available: true },
     ],
     rating: 4.9,
-    reviewCount: 127,
+    reviewCount: 213,
     subscriptionAvailable: true,
     subscriptionDiscount: 25,
     badge: "Best Seller",
     ingredients: [
-      "Oceana Hemp Full Spectrum Extract (500mg cannabinoids)",
+      "Oceana Hemp Flower Extract",
       "Organic MCT Oil",
-      "Organic Arnica Montana",
-      "Organic Lavender Essential Oil",
-      "Vitamin E",
+      "Vegetarian Certified Bacon Flavoring",
     ],
-    usage: "Apply generously to areas of tension. Massage in circular motions until absorbed. Use as needed.",
+    usage: "Shake well. Drop directly into mouth or mix with food. Small dogs (under 25 lbs): 0.25 mL. Medium dogs (25-50 lbs): 0.5 mL. Large dogs (50+ lbs): 1 mL. Start low, go slow.",
   },
   {
     id: "2",
@@ -67,25 +68,62 @@ export const mockProducts: Product[] = [
     ],
     usage: "Mist onto clean face from 6 inches away. Let absorb naturally. Use morning and night, or anytime you need a refresh.",
   },
+  {
+    id: "3",
+    handle: "full-spectrum-massage-oil",
+    title: "Full Spectrum Massage Oil",
+    description:
+      "Melt away tension with our full spectrum CBD massage oil. Crafted from organically grown hemp and infused with soothing botanicals, this oil absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients. No fillers. Just pure, potent relief that actually works.",
+    shortDescription: "Full spectrum CBD massage oil for deep relaxation & muscle relief",
+    price: 49.99,
+    images: [
+      { url: IMG.massageOil, alt: "OceanaHemp Full Spectrum Massage Oil" },
+    ],
+    benefit: "relaxation",
+    form: "oils",
+    variants: [
+      { id: "3-4oz", title: "4 oz (500mg)", price: 49.99, available: true },
+    ],
+    rating: 4.9,
+    reviewCount: 127,
+    subscriptionAvailable: true,
+    subscriptionDiscount: 25,
+    badge: "Popular",
+    ingredients: [
+      "Oceana Hemp Full Spectrum Extract (500mg cannabinoids)",
+      "Organic MCT Oil",
+      "Organic Arnica Montana",
+      "Organic Lavender Essential Oil",
+      "Vitamin E",
+    ],
+    usage: "Apply generously to areas of tension. Massage in circular motions until absorbed. Use as needed.",
+  },
 ];
 
 export const benefitConfig: Record<
   string,
   { label: string; icon: string; tagline: string; description: string; color: string }
 > = {
+  pets: {
+    label: "Pets",
+    icon: "🐾",
+    tagline: "Because they deserve the best",
+    description: "Full spectrum CBD pet tincture formulated for dogs & cats — calm support joint health and overall wellness.",
+    color: "from-amber-400 to-amber-600",
+  },
+  skincare: {
+    label: "Skincare",
+    icon: "✨",
+    tagline: "Your skin deserves better",
+    description: "Water-soluble CBD face spray that nourishes refreshes and protects — no greasy residue no nonsense.",
+    color: "from-coral to-amber-400",
+  },
   relaxation: {
     label: "Relaxation",
     icon: "🧘",
     tagline: "Unwind naturally",
     description: "Full spectrum CBD massage oil crafted to melt away tension and help you find your calm.",
     color: "from-ocean-mid to-hemp-green",
-  },
-  skincare: {
-    label: "Skincare",
-    icon: "✨",
-    tagline: "Your skin deserves better",
-    description: "Water-soluble CBD face spray that nourishes, refreshes, and protects — no greasy residue, no nonsense.",
-    color: "from-coral to-amber-400",
   },
 };
 

@@ -41,7 +41,7 @@ const particles = Array.from({ length: 30 }, (_, i) => ({
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  const relaxationProduct = mockProducts.find((p) => p.benefit === "relaxation")!;
+  const petsProduct = mockProducts.find((p) => p.benefit === "pets")!;
   const skincareProduct = mockProducts.find((p) => p.benefit === "skincare")!;
 
   return (
@@ -193,7 +193,7 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* front card (relaxation product) — tilted right, overlapping */}
+              {/* front card (pets product) — tilted right, overlapping */}
               <motion.div
                 className="absolute right-8 bottom-4 z-10"
                 initial={{ rotate: 6, opacity: 0, y: 30 }}
@@ -202,8 +202,8 @@ export default function Home() {
               >
                 <div className="w-56 h-72 rounded-2xl overflow-hidden bg-white shadow-2xl shadow-hemp-green/30 border border-white/40 relative group">
                   <Image
-                    src={relaxationProduct.images[0].url}
-                    alt={relaxationProduct.images[0].alt}
+                    src={petsProduct.images[0].url}
+                    alt={petsProduct.images[0].alt}
                     fill
                     sizes="224px"
                     className="object-cover"

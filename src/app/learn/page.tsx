@@ -40,6 +40,15 @@ const articles = [
     readTime: "5 min read",
   },
   {
+    title: "CBD for Pets",
+    emoji: "🐾",
+    slug: "/learn/cbd-for-pets",
+    excerpt:
+      "Your furry friends deserve the same quality you'd give yourself. Learn how full spectrum CBD pet tinctures support calm, joint health, immunity, and everyday wellness for dogs and cats.",
+    category: "Pets",
+    readTime: "7 min read",
+  },
+  {
     title: "CBD for Skincare",
     emoji: "✨",
     slug: "/learn/cbd-for-skincare",

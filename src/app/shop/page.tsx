@@ -66,6 +66,19 @@ export default async function ShopPage({ searchParams }: Props) {
                 All
               </Button>
             </Link>
+            <Link href="/shop?form=tinctures">
+              <Button
+                variant={formFilter === "tinctures" ? "default" : "ghost"}
+                size="sm"
+                className={
+                  formFilter === "tinctures"
+                    ? "bg-ocean-mid text-white"
+                    : "text-slate"
+                }
+              >
+                🐾 Pet Tincture
+              </Button>
+            </Link>
             <Link href="/shop?form=oils">
               <Button
                 variant={formFilter === "oils" ? "default" : "ghost"}
@@ -90,6 +103,19 @@ export default async function ShopPage({ searchParams }: Props) {
                 }
               >
                 ✨ Face Spray
+              </Button>
+            </Link>
+            <Link href="/shop?benefit=pets">
+              <Button
+                variant={benefitFilter === "pets" ? "default" : "ghost"}
+                size="sm"
+                className={
+                  benefitFilter === "pets"
+                    ? "bg-ocean-mid text-white"
+                    : "text-slate"
+                }
+              >
+                🐾 Pets
               </Button>
             </Link>
             <Link href="/shop?benefit=relaxation">

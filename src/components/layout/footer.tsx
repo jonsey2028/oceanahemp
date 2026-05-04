@@ -8,8 +8,9 @@ const footerColumns = [
     title: "Shop",
     links: [
       { label: "All Products", href: "/shop" },
-      { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },
+      { label: "Pet Tincture", href: "/shop/cbd-pet-tincture" },
       { label: "Face Spray", href: "/shop/water-soluble-cbd-face-spray" },
+      { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },
     ],
   },
   {
@@ -87,7 +88,7 @@ export function Footer() {
               Pure hemp products that actually work. No compromises, no shortcuts, no BS.
             </p>
             <p className="text-xs text-white/50 mb-6">
-              San Diego, CA ·{" "}
+              Encinitas, CA 92024 ·{" "}
               <a href="tel:+18583658439" className="hover:text-white/80 transition-colors">(858) 365-8439</a>
               {' · '}
               <a href="mailto:info@oceanahemp.com" className="hover:text-white/80 transition-colors">info@oceanahemp.com</a>
