@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   ShoppingCart,
   Minus,
@@ -13,105 +14,55 @@ import {
   FlaskConical,
   ArrowRight,
   Package,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-  variant: string;
-}
-
-const initialItems: CartItem[] = [
-  {
-    id: 'pet-tincture',
-    name: 'Pets Full Spectrum CBD Oil',
-    price: 40.95,
-    quantity: 1,
-    image: '🐾',
-    variant: '1 oz · 300mg Small Breed',
-  },
-  {
-    id: 'face-spray',
-    name: 'Water-Soluble CBD Face Spray',
-    price: 39.99,
-    quantity: 1,
-    image: '✨',
-    variant: '2 oz · 250mg',
-  },
-  {
-    id: 'massage-oil',
-    name: 'Full Spectrum Massage Oil',
-    price: 49.99,
-    quantity: 1,
-    image: '🧘',
-    variant: '4 oz · 500mg',
-  },
-];
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { useCart } from "@/lib/cart-context";
 
 const trustBadges = [
   {
     icon: <Truck className="h-5 w-5" />,
-    title: 'Free Shipping',
-    description: 'On orders over $75',
+    title: "Free Shipping",
+    description: "On orders over $75",
   },
   {
     icon: <ShieldCheck className="h-5 w-5" />,
-    title: '60-Day Guarantee',
-    description: 'Hassle-free returns',
+    title: "60-Day Guarantee",
+    description: "Hassle-free returns",
   },
   {
     icon: <FlaskConical className="h-5 w-5" />,
-    title: 'Lab Tested',
-    description: 'Third-party verified',
+    title: "Lab Tested",
+    description: "Third-party verified",
   },
 ];
 
 export default function CartPage() {
-  const [items, setItems] = useState<CartItem[]>(initialItems);
-  const [promoCode, setPromoCode] = useState('');
+  const { items, removeItem, updateQuantity, subtotal } = useCart();
+  const [promoCode, setPromoCode] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoPercent, setPromoPercent] = useState(0);
-  const [promoName, setPromoName] = useState('');
+  const [promoName, setPromoName] = useState("");
   const [checkoutClicked, setCheckoutClicked] = useState(false);
 
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = subtotal >= 75 ? 0 : 5.99;
   const discount = promoApplied ? subtotal * (promoPercent / 100) : 0;
   const total = subtotal - discount + shipping;
 
-  const updateQuantity = (id: string, delta: number) => {
-    setItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
-  const removeItem = (id: string) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
-  };
-
   const applyPromo = () => {
     const code = promoCode.trim().toUpperCase();
-    if (code === 'WELCOME20') {
+    if (code === "WELCOME20") {
       setPromoPercent(20);
-      setPromoName('WELCOME20');
+      setPromoName("WELCOME20");
       setPromoApplied(true);
-    } else if (code === 'HONOR10') {
+    } else if (code === "HONOR10") {
       setPromoPercent(10);
-      setPromoName('HONOR10');
+      setPromoName("HONOR10");
       setPromoApplied(true);
-    } else if (code === 'OCEANA15') {
+    } else if (code === "OCEANA15") {
       setPromoPercent(15);
-      setPromoName('OCEANA15');
+      setPromoName("OCEANA15");
       setPromoApplied(true);
     }
   };
@@ -121,11 +72,10 @@ export default function CartPage() {
     setTimeout(() => setCheckoutClicked(false), 2000);
   };
 
-  // ─── Empty Cart ───
+  // Empty Cart
   if (items.length === 0) {
     return (
       <div>
-        {/* Hero accent */}
         <section className="bg-ocean-foam wave-divider">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ocean-deep">
@@ -162,7 +112,7 @@ export default function CartPage() {
     );
   }
 
-  // ─── Filled Cart ───
+  // Filled Cart
   return (
     <div>
       {/* Hero accent */}
@@ -172,7 +122,7 @@ export default function CartPage() {
             Your Cart
           </h1>
           <p className="mt-2 text-slate text-lg">
-            {items.length} {items.length === 1 ? 'item' : 'items'} waiting for you
+            {items.length} {items.length === 1 ? "item" : "items"} waiting for you
           </p>
         </div>
       </section>
@@ -181,32 +131,58 @@ export default function CartPage() {
       <section className="py-12 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12">
-            {/* ─── LEFT: Line Items ─── */}
+            {/* LEFT: Line Items */}
             <div className="lg:col-span-7 space-y-6">
               {items.map((item) => (
                 <div
-                  key={item.id}
+                  key={item.variant.id}
                   className="bg-white rounded-2xl border border-border p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300"
                 >
                   <div className="flex gap-4 sm:gap-6">
-                    {/* Product image placeholder */}
-                    <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-ocean-foam flex items-center justify-center text-3xl sm:text-4xl">
-                      {item.image}
+                    {/* Product image */}
+                    <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-ocean-foam overflow-hidden relative">
+                      {item.product.images[0] ? (
+                        <Image
+                          src={item.product.images[0].url}
+                          alt={item.product.images[0].alt}
+                          fill
+                          sizes="96px"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-3xl">
+                          {item.product.benefit === "pets"
+                            ? "🐾"
+                            : item.product.benefit === "skincare"
+                            ? "✨"
+                            : "🧘"}
+                        </div>
+                      )}
                     </div>
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <h3 className="font-heading text-lg font-bold text-charcoal truncate">
-                            {item.name}
-                          </h3>
-                          <p className="text-sm text-slate mt-0.5">{item.variant}</p>
+                          <Link
+                            href={`/shop/${item.product.handle}`}
+                            className="font-heading text-lg font-bold text-charcoal truncate hover:text-ocean-mid transition-colors"
+                          >
+                            {item.product.title}
+                          </Link>
+                          <p className="text-sm text-slate mt-0.5">
+                            {item.variant.title}
+                          </p>
+                          {item.isSubscription && (
+                            <p className="text-xs text-hemp-green font-medium mt-0.5">
+                              Subscription
+                            </p>
+                          )}
                         </div>
                         <button
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => removeItem(item.variant.id)}
                           className="shrink-0 p-1.5 rounded-lg text-slate hover:text-coral hover:bg-coral/10 transition-colors"
-                          aria-label={`Remove ${item.name}`}
+                          aria-label={`Remove ${item.product.title}`}
                         >
                           <Trash2 className="h-4 w-4" />
                         </button>
@@ -216,7 +192,9 @@ export default function CartPage() {
                         {/* Quantity adjuster */}
                         <div className="flex items-center gap-1">
                           <button
-                            onClick={() => updateQuantity(item.id, -1)}
+                            onClick={() =>
+                              updateQuantity(item.variant.id, item.quantity - 1)
+                            }
                             className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-slate hover:bg-ocean-foam hover:text-ocean-mid hover:border-ocean-mid transition-colors"
                             aria-label="Decrease quantity"
                           >
@@ -226,7 +204,9 @@ export default function CartPage() {
                             {item.quantity}
                           </span>
                           <button
-                            onClick={() => updateQuantity(item.id, 1)}
+                            onClick={() =>
+                              updateQuantity(item.variant.id, item.quantity + 1)
+                            }
                             className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-slate hover:bg-ocean-foam hover:text-ocean-mid hover:border-ocean-mid transition-colors"
                             aria-label="Increase quantity"
                           >
@@ -236,7 +216,7 @@ export default function CartPage() {
 
                         {/* Line total */}
                         <p className="font-heading text-lg font-bold text-ocean-deep">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ${(item.variant.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -254,7 +234,7 @@ export default function CartPage() {
               </Link>
             </div>
 
-            {/* ─── RIGHT: Order Summary ─── */}
+            {/* RIGHT: Order Summary */}
             <div className="lg:col-span-5 mt-10 lg:mt-0">
               <div className="sticky top-24 space-y-6">
                 {/* Summary card */}
@@ -347,7 +327,7 @@ export default function CartPage() {
                       onClick={handleCheckout}
                       className="w-full bg-ocean-mid text-white hover:bg-ocean-deep font-semibold text-base h-11"
                     >
-                      {checkoutClicked ? '🧡 Checkout coming soon!' : 'Proceed to Checkout'}
+                      {checkoutClicked ? "🧡 Checkout coming soon!" : "Proceed to Checkout"}
                       {!checkoutClicked && <ArrowRight className="ml-2 h-4 w-4" />}
                     </Button>
                   </div>

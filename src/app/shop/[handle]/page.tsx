@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { AddToCartSection } from "@/components/add-to-cart-section";
 import {
   getProductByHandle,
   mockProducts,
@@ -41,10 +42,6 @@ export default async function ProductPage({ params }: Props) {
           100
       )
     : 0;
-  const subPrice = (
-    product.price *
-    (1 - product.subscriptionDiscount / 100)
-  ).toFixed(2);
 
   return (
     <div>
@@ -148,41 +145,8 @@ export default async function ProductPage({ params }: Props) {
 
             <Separator />
 
-            {/* Variants */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-charcoal">Size / Strength</h3>
-              <div className="flex flex-wrap gap-3">
-                {product.variants.map((variant) => (
-                  <button
-                    key={variant.id}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-ocean-mid bg-ocean-foam text-ocean-deep font-medium text-sm hover:bg-ocean-mid hover:text-white transition-colors"
-                  >
-                    <span>{variant.title}</span>
-                    <span className="font-bold">${variant.price}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Add to cart */}
-            <div className="space-y-3">
-              <Button
-                size="lg"
-                className="w-full bg-ocean-mid hover:bg-ocean-deep text-white font-bold text-base h-14"
-              >
-                Add to Cart ${product.price}
-              </Button>
-              {product.subscriptionAvailable && (
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full border-hemp-green text-hemp-green hover:bg-hemp-light font-bold text-base h-14"
-                >
-                  Subscribe & Save {product.subscriptionDiscount}%: $
-                  {subPrice}/mo
-                </Button>
-              )}
-            </div>
+            {/* Variants + Add to Cart (client component) */}
+            <AddToCartSection product={product} />
 
             {/* Trust signals */}
             <div className="grid grid-cols-2 gap-3">

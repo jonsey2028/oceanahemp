@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -56,11 +57,13 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-charcoal">
-        <AnnouncementBar />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <Toaster position="bottom-right" />
+        <CartProvider>
+          <AnnouncementBar />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster position="bottom-right" />
+        </CartProvider>
       </body>
     </html>
   );

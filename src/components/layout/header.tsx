@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Search, ShoppingCart, User, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
   {
@@ -35,6 +36,7 @@ const navLinks = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const { itemCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border">
@@ -178,9 +180,11 @@ export function Header() {
             <Link href="/cart" aria-label="Shopping cart">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingCart className="h-5 w-5" />
-                <span className="absolute -top-1 -right-1 bg-coral text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-                  0
-                </span>
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-coral text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                    {itemCount}
+                  </span>
+                )}
               </Button>
             </Link>
           </div>
