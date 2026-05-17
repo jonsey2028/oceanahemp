@@ -132,7 +132,7 @@ export default async function ProductPage({ params }: Props) {
               {product.subscriptionAvailable && (
                 <p className="text-sm text-hemp-green font-medium">
                   Subscribe & save:{" "}
-                  <span className="font-bold">${subPrice}</span>{" "}
+                  <span className="font-bold">${(product.price * (1 - product.subscriptionDiscount / 100)).toFixed(2)}</span>{" "}
                   ({product.subscriptionDiscount}% off)
                 </p>
               )}

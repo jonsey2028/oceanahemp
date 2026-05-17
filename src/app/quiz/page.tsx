@@ -142,7 +142,6 @@ export default function QuizPage() {
       {/* ─── HERO ─── */}
       {!showResult && (
         <section className="relative overflow-hidden bg-gradient-to-br from-ocean-deep via-ocean-mid to-hemp-green">
-          <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
               Find Your Perfect CBD

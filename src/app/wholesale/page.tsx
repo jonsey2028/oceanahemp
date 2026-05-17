@@ -92,7 +92,6 @@ export default function WholesalePage() {
     <div>
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-ocean-deep via-ocean-mid to-hemp-green wave-divider">
-        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm text-white/90 mb-6">
             <Building2 className="h-4 w-4" />

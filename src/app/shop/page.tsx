@@ -1,5 +1,9 @@
+"use client";
+
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,16 +13,10 @@ import {
   getProductsByBenefit,
 } from "@/lib/mock-data";
 
-type Props = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-export default async function ShopPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const formFilter =
-    typeof params.form === "string" ? params.form : undefined;
-  const benefitFilter =
-    typeof params.benefit === "string" ? params.benefit : undefined;
+function ShopContent() {
+  const searchParams = useSearchParams();
+  const formFilter = searchParams.get("form") ?? undefined;
+  const benefitFilter = searchParams.get("benefit") ?? undefined;
 
   let products = mockProducts;
   if (benefitFilter) {
@@ -253,5 +251,13 @@ export default async function ShopPage({ searchParams }: Props) {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><p className="text-slate">Loading...</p></div>}>
+      <ShopContent />
+    </Suspense>
   );
 }

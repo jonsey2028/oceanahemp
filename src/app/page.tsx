@@ -49,7 +49,6 @@ export default function Home() {
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-ocean-deep via-ocean-mid to-hemp-green wave-divider">
         {/* noise overlay */}
-        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10 pointer-events-none z-10" />
 
         {/* floating orbs (client-only to prevent hydration mismatch) */}
         {mounted && orbs.map((orb, i) => (
