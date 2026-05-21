@@ -17,7 +17,7 @@ import { AddToCartSection } from "@/components/add-to-cart-section";
 import {
   getProductByHandle,
   mockProducts,
-  mockReviews,
+  getProductReviews,
   benefitConfig,
 } from "@/lib/mock-data";
 
@@ -43,8 +43,51 @@ export default async function ProductPage({ params }: Props) {
       )
     : 0;
 
+  const productReviews = getProductReviews(product);
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    image: `https://oceanahemp.com${product.images[0].url}`,
+    description: product.shortDescription,
+    brand: { "@type": "Brand", name: "OceanaHemp" },
+    sku: product.id,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: product.price.toString(),
+      url: `https://oceanahemp.com/shop/${product.handle}`,
+      availability: product.variants.some((v) => v.available)
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.rating.toFixed(1),
+      reviewCount: product.reviewCount.toString(),
+    },
+    review: productReviews.map((r) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating.toString(),
+        bestRating: "5",
+        worstRating: "1",
+      },
+      author: { "@type": "Person", name: r.author },
+      reviewBody: r.body,
+      datePublished: r.date,
+      name: r.title,
+    })),
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-slate mb-8">
@@ -203,7 +246,7 @@ export default async function ProductPage({ params }: Props) {
             Customer Reviews
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {mockReviews.map((review) => (
+            {getProductReviews(product).map((review) => (
               <div
                 key={review.id}
                 className="bg-white rounded-2xl p-6 border border-border"

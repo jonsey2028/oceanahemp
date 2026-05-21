@@ -34,6 +34,7 @@ export interface Product {
   badge?: string;
   ingredients: string[];
   usage: string;
+  reviews?: Review[];
 }
 
 export interface Bundle {

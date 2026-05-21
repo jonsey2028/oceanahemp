@@ -79,10 +79,45 @@ export default function WholesalePage() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const res = await fetch('/api/wholesale.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+      setSubmitted(true);
+      setFormData({
+        businessName: '',
+        businessType: '',
+        contactName: '',
+        email: '',
+        phone: '',
+        website: '',
+        ein: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        resaleLicense: '',
+        productsInterest: '',
+        message: '',
+      });
+    } catch (err: any) {
+      setSubmitError(err.message || 'Failed to submit. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const update = (field: string, value: string) =>
@@ -167,6 +202,12 @@ export default function WholesalePage() {
                 </div>
               </div>
             ) : (
+              <>
+                {submitError && (
+                  <div className="mt-6 flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-5 py-4">
+                    <p className="text-red-600 font-medium">{submitError}</p>
+                  </div>
+                )}
               <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                 {/* Business Info */}
                 <div>
@@ -371,12 +412,18 @@ export default function WholesalePage() {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={submitting}
                   className="w-full sm:w-auto bg-ocean-mid text-white hover:bg-ocean-deep font-semibold text-base h-12 px-10"
                 >
+                  {submitting ? 'Submitting...' : (
+                  <>
                   Submit Application
                   <ArrowRight className="ml-2 h-4 w-4" />
+                  </>
+                  )}
                 </Button>
               </form>
+              </>
             )}
           </div>
         </div>
@@ -393,13 +440,13 @@ export default function WholesalePage() {
             typically respond within one business day.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="mailto:sales@oceanahemp.com">
+            <a href="mailto:wholesale@oceanahemp.com">
               <Button
                 size="lg"
                 className="bg-white text-ocean-deep hover:bg-ocean-foam font-semibold text-base px-8"
               >
                 <Mail className="mr-2 h-4 w-4" />
-                sales@oceanahemp.com
+                wholesale@oceanahemp.com
               </Button>
             </a>
             <a href="tel:+18583658439">

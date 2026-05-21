@@ -12,6 +12,7 @@ import {
   benefitConfig,
 } from "@/lib/mock-data";
 import { motion } from "framer-motion";
+import NewsletterSignup from "@/components/newsletter-signup";
 
 /* ── reusable floating-orb config ── */
 const orbs = [
@@ -514,6 +515,13 @@ purest extracts, the most effective formulations.
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ─── NEWSLETTER ─── */}
+      <section className="py-16 lg:py-24 bg-ocean-foam">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NewsletterSignup />
         </div>
       </section>
     </div>

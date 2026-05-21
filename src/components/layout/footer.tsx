@@ -17,10 +17,10 @@ const footerColumns = [
     title: "Learn",
     links: [
       { label: "What is CBD?", href: "/learn/what-is-cbd" },
-      { label: "CBD Dosage Guide", href: "/learn/cbd-dosage" },
+      { label: "CBD Dosage Guide", href: "/learn/cbd-dosage-guide" },
       { label: "Benefits of CBD", href: "/learn/benefits-of-cbd" },
-      { label: "Full vs Broad vs Isolate", href: "/learn/spectrum-explained" },
-      { label: "Blog", href: "/learn" },
+      { label: "Full vs Broad vs Isolate", href: "/learn/full-vs-broad-vs-isolate" },
+      { label: "CBD for Pets", href: "/learn/cbd-for-pets" },
       { label: "Product Finder Quiz", href: "/quiz" },
     ],
   },
@@ -28,20 +28,20 @@ const footerColumns = [
     title: "Company",
     links: [
       { label: "Our Story", href: "/about" },
-      { label: "Lab Results", href: "/lab-results" },
       { label: "Sustainability", href: "/about#sustainability" },
-      { label: "Press", href: "/about#press" },
       { label: "Wholesale", href: "/wholesale" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
     title: "Support",
     links: [
-      { label: "FAQ", href: "/about/faq" },
-      { label: "Shipping & Returns", href: "/about/faq#shipping" },
+      { label: "FAQ", href: "/faq" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Subscribe & Save", href: "/about/faq#subscribe" },
+      { label: "Wholesale Application", href: "/wholesale" },
+      { label: "Lab Results", href: "/lab-results" },
       { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ];
@@ -90,10 +90,10 @@ export function Footer() {
             <p className="text-xs text-white/50 mb-6">
               Encinitas, CA 92024 ·{" "}
               <a href="tel:+18583658439" className="hover:text-white/80 transition-colors">(858) 365-8439</a>
-              {' · '}
-              <a href="mailto:info@oceanahemp.com" className="hover:text-white/80 transition-colors">info@oceanahemp.com</a>
-              {' · '}
-              <a href="mailto:sales@oceanahemp.com" className="hover:text-white/80 transition-colors">sales@oceanahemp.com</a>
+              {" · "}
+              <a href="mailto:hello@oceanahemp.com" className="hover:text-white/80 transition-colors">hello@oceanahemp.com</a>
+              {" · "}
+              <a href="mailto:wholesale@oceanahemp.com" className="hover:text-white/80 transition-colors">wholesale@oceanahemp.com</a>
             </p>
             {/* Email signup */}
             <div className="space-y-2">
@@ -144,19 +144,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-4 text-xs text-white/50">
-            <span>&copy; {new Date().getFullYear()} OceanaHemp. All rights reserved.</span>
-            <Link href="/privacy" className="hover:text-white/80 transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-white/80 transition-colors">
-              Terms
-            </Link>
-            <Link
-              href="/contact?type=dns"
-              className="hover:text-white/80 transition-colors"
-            >
-              Do Not Sell My Info
-            </Link>
+            <span>© {new Date().getFullYear()} OceanaHemp. All rights reserved.</span>
           </div>
           <div className="flex items-center gap-1 text-xs text-white/50">
             <span>Lab-tested</span>

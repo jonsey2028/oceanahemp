@@ -133,6 +133,40 @@ export const mockReviews: Review[] = [
   { id: "r3", author: "Sarah M.", rating: 5, title: "My skin has never looked better", body: "The face spray is a game changer. I mist it on after cleansing and before moisturizer. My skin feels hydrated and calm, not tight or greasy.", date: "2026-03-15", verified: true },
 ];
 
+export const petTinctureReviews: Review[] = [
+  { id: "p1", author: "Jessica T.", rating: 5, title: "My anxious dog is finally calm", body: "Our golden retriever used to shake during thunderstorms. One dose of this tincture and she curls up and sleeps through them now. Absolutely incredible.", date: "2026-04-02", verified: true },
+  { id: "p2", author: "Mark R.", rating: 5, title: "My senior dog is moving again", body: "13-year-old lab was barely getting up stairs. After two weeks on this, he's chasing squirrels again. I owe you everything.", date: "2026-03-22", verified: true },
+  { id: "p3", author: "Amanda S.", rating: 4, title: "Works for my cat too", body: "Was skeptical about giving CBD to my cat, but the bacon flavor works. She's less territorial with the neighbor's cat. Very happy with results.", date: "2026-03-10", verified: true },
+];
+
+export const faceSprayReviews: Review[] = [
+  { id: "f1", author: "Sophia L.", rating: 5, title: "My skin has never looked better", body: "The face spray is a game changer. I mist it on after cleansing and before moisturizer. My skin feels hydrated and calm, not tight or greasy.", date: "2026-03-15", verified: true },
+  { id: "f2", author: "Daniel K.", rating: 5, title: "Works great under makeup", body: "I mist before applying foundation and it creates the smoothest canvas. No oiliness, no breakouts. Just calm, even skin. Can't live without it.", date: "2026-02-20", verified: true },
+  { id: "f3", author: "Nina W.", rating: 4, title: "Refreshing midday pick-me-up", body: "I keep this in my bag for the office. A quick spritz after lunch meetings and I feel refreshed. The water-soluble formula is brilliant.", date: "2026-01-18", verified: true },
+];
+
+export const massageOilReviews: Review[] = [
+  { id: "m1", author: "Maria L.", rating: 5, title: "Best massage oil I've ever used", body: "I use this after every stressful day. The lavender and arnica combination is incredible. my shoulders finally let go. Worth every penny.", date: "2026-03-02", verified: true },
+  { id: "m2", author: "David K.", rating: 5, title: "Finally, real relaxation", body: "This massage oil absorbs so well and actually works. No greasy residue, just deep relief. I've already subscribed.", date: "2026-02-28", verified: true },
+  { id: "m3", author: "Patrick D.", rating: 5, title: "Saved my post-workout recovery", body: "I lift heavy six days a week. This oil is my secret weapon. Roll it on sore muscles, massage it in, wake up feeling brand new.", date: "2026-03-28", verified: true },
+];
+
+function getProductReviews(product: Product): Review[] {
+  if (product.reviews) return product.reviews;
+  switch (product.handle) {
+    case "cbd-pet-tincture":
+      return petTinctureReviews;
+    case "water-soluble-cbd-face-spray":
+      return faceSprayReviews;
+    case "full-spectrum-massage-oil":
+      return massageOilReviews;
+    default:
+      return mockReviews;
+  }
+}
+
+export { getProductReviews };
+
 export function getProductsByBenefit(benefit: string): Product[] {
   return mockProducts.filter((p) => p.benefit === benefit);
 }

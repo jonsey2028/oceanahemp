@@ -22,7 +22,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "OceanaHemp: Premium CBD for Your Wellness Journey",
   description:
-    "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+. Subscribe & save. 60-day guarantee.",
+    "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+. Subscribe \u0026 save. 60-day guarantee.",
   keywords: [
     "CBD",
     "hemp",
@@ -46,6 +46,48 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "OceanaHemp",
+  url: "https://oceanahemp.com",
+  logo: "https://oceanahemp.com/logo.png",
+  description:
+    "Premium CBD products crafted from organically grown, USA-sourced hemp. Third-party lab tested, third-party verified.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-858-365-8439",
+    contactType: "customer service",
+    email: "hello@oceanahemp.com",
+    availableLanguage: "English",
+  },
+  sameAs: [],
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "OceanaHemp",
+  url: "https://oceanahemp.com",
+  telephone: "+1-858-365-8439",
+  email: "hello@oceanahemp.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1106 2nd Street #126",
+    addressLocality: "Encinitas",
+    addressRegion: "CA",
+    postalCode: "92024",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "33.0370",
+    longitude: "-117.2920",
+  },
+  priceRange: "$$",
+  openingHours: ["Mo-Fr 09:00-17:00"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,6 +98,38 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body className="min-h-full flex flex-col bg-white text-charcoal">
         <CartProvider>
           <AnnouncementBar />

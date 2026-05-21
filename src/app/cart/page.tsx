@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -68,8 +69,8 @@ export default function CartPage() {
   };
 
   const handleCheckout = () => {
-    setCheckoutClicked(true);
-    setTimeout(() => setCheckoutClicked(false), 2000);
+    // CBD payment processing is restricted, redirect to personal checkout flow
+    window.location.href = "/contact?type=order";
   };
 
   // Empty Cart
@@ -327,8 +328,8 @@ export default function CartPage() {
                       onClick={handleCheckout}
                       className="w-full bg-ocean-mid text-white hover:bg-ocean-deep font-semibold text-base h-11"
                     >
-                      {checkoutClicked ? "🧡 Checkout coming soon!" : "Proceed to Checkout"}
-                      {!checkoutClicked && <ArrowRight className="ml-2 h-4 w-4" />}
+                      Proceed to Checkout
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
+import { toast } from "sonner";
 import type { Product, ProductVariant } from "@/types/product";
 
 interface AddToCartSectionProps {
@@ -30,12 +31,26 @@ export function AddToCartSection({ product }: AddToCartSectionProps) {
     addItem(product, selectedVariant, 1, false);
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1500);
+    toast.success(`${product.title} added to cart`, {
+      description: `${selectedVariant.title} — $${selectedVariant.price}`,
+      action: {
+        label: "Go to Cart",
+        onClick: () => window.location.href = "/cart",
+      },
+    });
   };
 
   const handleSubscribe = () => {
     addItem(product, selectedVariant, 1, true);
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1500);
+    toast.success(`${product.title} added to subscription`, {
+      description: `Subscription — $${subPrice}/mo`,
+      action: {
+        label: "Go to Cart",
+        onClick: () => window.location.href = "/cart",
+      },
+    });
   };
 
   return (

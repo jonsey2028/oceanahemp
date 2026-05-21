@@ -33,7 +33,7 @@ const contactCards = [
   {
     icon: <Mail className="h-5 w-5" />,
     label: 'Email Us',
-    value: 'info@oceanahemp.com',
+    value: 'hello@oceanahemp.com',
     sublabel: 'We respond within 24 hours',
     color: 'text-ocean-mid',
     bg: 'bg-ocean-foam',
@@ -51,7 +51,7 @@ const contactCards = [
     icon: <Clock className="h-5 w-5" />,
     label: 'Business Hours',
     value: 'Mon to Fri 9am to 5pm PST',
-    sublabel: 'Closed weekends & holidays',
+    sublabel: 'Closed weekends \u0026 holidays',
     color: 'text-ocean-deep',
     bg: 'bg-ocean-foam',
   },
@@ -96,13 +96,32 @@ export default function ContactPage() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [subjectOpen, setSubjectOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const res = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+      setSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Failed to send. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -150,6 +169,12 @@ export default function ContactPage() {
                         inbox for a confirmation.
                       </p>
                     </div>
+                  </div>
+                )}
+
+                {submitError && (
+                  <div className="mt-6 flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-5 py-4">
+                    <p className="text-red-600 font-medium">{submitError}</p>
                   </div>
                 )}
 
@@ -226,10 +251,13 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     size="lg"
+                    disabled={submitting}
                     className="w-full sm:w-auto bg-ocean-mid text-white hover:bg-ocean-deep font-semibold text-base h-11 px-8"
                   >
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {submitting ? 'Sending...' : (<>
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </>)}
                   </Button>
                 </form>
               </div>
@@ -337,7 +365,7 @@ export default function ContactPage() {
             product for your needs. Don&apos;t hesitate to reach out.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="mailto:info@oceanahemp.com">
+            <a href="mailto:hello@oceanahemp.com">
               <Button
                 size="lg"
                 className="bg-white text-ocean-deep hover:bg-ocean-foam font-semibold text-base px-8"
