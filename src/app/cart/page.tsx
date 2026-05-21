@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -40,12 +39,11 @@ const trustBadges = [
 ];
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, subtotal } = useCart();
+  const { items, removeItem, updateQuantity, subtotal, hydrated } = useCart();
   const [promoCode, setPromoCode] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoPercent, setPromoPercent] = useState(0);
   const [promoName, setPromoName] = useState("");
-  const [checkoutClicked, setCheckoutClicked] = useState(false);
 
   const shipping = subtotal >= 75 ? 0 : 5.99;
   const discount = promoApplied ? subtotal * (promoPercent / 100) : 0;
@@ -69,11 +67,36 @@ export default function CartPage() {
   };
 
   const handleCheckout = () => {
-    // CBD payment processing is restricted, redirect to personal checkout flow
     window.location.href = "/contact?type=order";
   };
 
-  // Empty Cart
+  // Loading state while hydrating from localStorage
+  if (!hydrated) {
+    return (
+      <div>
+        <section className="bg-ocean-foam wave-divider">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ocean-deep">
+              Your Cart
+            </h1>
+            <p className="mt-2 text-slate text-lg">Review your items before checkout</p>
+          </div>
+        </section>
+        <section className="py-20 lg:py-32 bg-white">
+          <div className="max-w-lg mx-auto px-4 text-center">
+            <div className="w-28 h-28 mx-auto mb-8 rounded-full bg-ocean-foam flex items-center justify-center">
+              <div className="h-10 w-10 border-4 border-ocean-mid border-t-transparent rounded-full animate-spin" />
+            </div>
+            <h2 className="font-heading text-xl font-bold text-ocean-deep">
+              Loading your cart...
+            </h2>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  // Empty Cart (only after hydration)
   if (items.length === 0) {
     return (
       <div>
@@ -116,7 +139,6 @@ export default function CartPage() {
   // Filled Cart
   return (
     <div>
-      {/* Hero accent */}
       <section className="bg-ocean-foam wave-divider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ocean-deep">
@@ -128,11 +150,9 @@ export default function CartPage() {
         </div>
       </section>
 
-      {/* Cart content */}
       <section className="py-12 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-12">
-            {/* LEFT: Line Items */}
             <div className="lg:col-span-7 space-y-6">
               {items.map((item) => (
                 <div
@@ -140,7 +160,6 @@ export default function CartPage() {
                   className="bg-white rounded-2xl border border-border p-5 sm:p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300"
                 >
                   <div className="flex gap-4 sm:gap-6">
-                    {/* Product image */}
                     <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-ocean-foam overflow-hidden relative">
                       {item.product.images[0] ? (
                         <Image
@@ -161,7 +180,6 @@ export default function CartPage() {
                       )}
                     </div>
 
-                    {/* Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2">
                         <div>
@@ -190,7 +208,6 @@ export default function CartPage() {
                       </div>
 
                       <div className="flex items-center justify-between mt-4">
-                        {/* Quantity adjuster */}
                         <div className="flex items-center gap-1">
                           <button
                             onClick={() =>
@@ -215,7 +232,6 @@ export default function CartPage() {
                           </button>
                         </div>
 
-                        {/* Line total */}
                         <p className="font-heading text-lg font-bold text-ocean-deep">
                           ${(item.variant.price * item.quantity).toFixed(2)}
                         </p>
@@ -225,7 +241,6 @@ export default function CartPage() {
                 </div>
               ))}
 
-              {/* Continue Shopping */}
               <Link
                 href="/shop"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-ocean-mid hover:text-ocean-deep transition-colors mt-2"
@@ -235,10 +250,8 @@ export default function CartPage() {
               </Link>
             </div>
 
-            {/* RIGHT: Order Summary */}
             <div className="lg:col-span-5 mt-10 lg:mt-0">
               <div className="sticky top-24 space-y-6">
-                {/* Summary card */}
                 <div className="bg-white rounded-2xl border border-border shadow-card overflow-hidden">
                   <div className="p-6">
                     <h2 className="font-heading text-xl font-bold text-ocean-deep flex items-center gap-2">
@@ -291,7 +304,6 @@ export default function CartPage() {
                     </div>
                   </div>
 
-                  {/* Promo code */}
                   <div className="px-6 pb-5">
                     <div className="flex gap-2">
                       <div className="relative flex-1">
@@ -321,7 +333,6 @@ export default function CartPage() {
                     )}
                   </div>
 
-                  {/* Checkout button */}
                   <div className="px-6 pb-6">
                     <Button
                       size="lg"
@@ -334,7 +345,6 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                {/* Trust badges */}
                 <div className="grid grid-cols-3 gap-3">
                   {trustBadges.map((badge) => (
                     <div
