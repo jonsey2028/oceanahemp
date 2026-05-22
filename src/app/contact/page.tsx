@@ -104,24 +104,22 @@ export default function ContactPage() {
     e.preventDefault();
     setSubmitting(true);
     setSubmitError('');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Something went wrong. Please try again.');
-      }
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 8000);
-    } catch (err: any) {
-      setSubmitError(err.message || 'Failed to send. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
+
+    // Fallback: open mailto since we're on static hosting without a backend
+    const subjectLine = encodeURIComponent(`Contact: ${formData.subject || 'General Inquiry'} from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject || 'General Inquiry'}\n\nMessage:\n${formData.message}`
+    );
+    const mailto = `mailto:hello@oceanahemp.com?subject=${subjectLine}&body=${body}`;
+
+    // Try to open mailto; on mobile this opens the email app
+    window.location.href = mailto;
+
+    // Show success UI regardless (mailto may not confirm delivery)
+    setSubmitted(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setTimeout(() => setSubmitted(false), 8000);
+    setSubmitting(false);
   };
 
   return (
