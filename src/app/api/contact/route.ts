@@ -1,6 +1,14 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | null = null;
+function getResend(): Resend | null {
+  if (!resend) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key || key === 're_YOUR_RESEND_API_KEY_HERE') return null;
+    resend = new Resend(key);
+  }
+  return resend;
+}
 
 function validateFields(data: Record<string, unknown>) {
   const name = typeof data.name === 'string' ? data.name.trim() : '';
@@ -34,7 +42,8 @@ export async function POST(request: Request) {
     const to = process.env.CONTACT_EMAIL || 'hello@oceanahemp.com';
 
     // If no Resend API key is set, return success so the site doesn't break
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_YOUR_RESEND_API_KEY_HERE') {
+    const resend = getResend();
+    if (!resend) {
       console.log('Contact form (no email service configured):', { name, email, subject, message });
       return Response.json({
         success: true,

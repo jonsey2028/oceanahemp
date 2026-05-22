@@ -1,6 +1,14 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | null = null;
+function getResend(): Resend | null {
+  if (!resend) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key || key === 're_YOUR_RESEND_API_KEY_HERE') return null;
+    resend = new Resend(key);
+  }
+  return resend;
+}
 
 export async function POST(request: Request) {
   try {
@@ -13,7 +21,8 @@ export async function POST(request: Request) {
 
     // If no Resend API key is set, return success so the site doesn't break
     // This allows testing the form without a real email provider
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_YOUR_RESEND_API_KEY_HERE') {
+    const resend = getResend();
+    if (!resend) {
       console.log('Newsletter signup (no email service configured):', email);
       return Response.json({
         success: true,

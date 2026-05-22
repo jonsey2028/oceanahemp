@@ -1,6 +1,14 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend: Resend | null = null;
+function getResend(): Resend | null {
+  if (!resend) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key || key === 're_YOUR_RESEND_API_KEY_HERE') return null;
+    resend = new Resend(key);
+  }
+  return resend;
+}
 
 function validateFields(data: Record<string, unknown>) {
   const businessName = typeof data.businessName === 'string' ? data.businessName.trim() : '';
@@ -44,7 +52,8 @@ export async function POST(request: Request) {
     const to = process.env.WHOLESALE_EMAIL || 'wholesale@oceanahemp.com';
 
     // If no Resend API key is set, return success so the site doesn't break
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_YOUR_RESEND_API_KEY_HERE') {
+    const resend = getResend();
+    if (!resend) {
       console.log('Wholesale form (no email service configured):', { businessName: fields.businessName, contactName: fields.contactName, email: fields.email });
       return Response.json({
         success: true,
