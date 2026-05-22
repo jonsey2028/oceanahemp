@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { NewsletterForm } from "@/components/newsletter-form";
 
 const footerColumns = [
   {
@@ -100,19 +99,7 @@ export function Footer() {
               <p className="text-sm font-medium">
                 Get 20% off your first order + weekly wellness tips
               </p>
-              <form className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-ocean-mid"
-                />
-                <Button
-                  type="submit"
-                  className="bg-hemp-green hover:bg-hemp-green/90 text-white shrink-0"
-                >
-                  Join
-                </Button>
-              </form>
+              <NewsletterForm />
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, Download, ExternalLink } from "lucide-react";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const labReports = [
@@ -53,7 +53,7 @@ export default function LabResultsPage() {
               Certificates of Analysis
             </h2>
             <p className="text-slate">
-              Every batch is tested by independent, ISO-certified laboratories for potency, purity, and safety. Scan the QR code on any product to view its COA instantly.
+              Every batch is tested by independent, ISO-certified laboratories for potency, purity, and safety. Scan the QR code on any product to view its COA instantly, or email us to request a digital copy.
             </p>
           </div>
 
@@ -100,22 +100,21 @@ export default function LabResultsPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-ocean-mid text-ocean-mid hover:bg-ocean-foam"
+                  <a
+                    href={`mailto:hello@oceanahemp.com?subject=${encodeURIComponent(
+                      `COA Request - ${report.product} (${report.batch})`
+                    )}&body=${encodeURIComponent(
+                      `Hi OceanaHemp Team,\n\nI would like to request the Certificate of Analysis (COA) for:\n\nProduct: ${report.product}\nBatch: ${report.batch}\nTested: ${report.date}\n\nPlease send the lab report PDF to this email.\n\nThank you!`
+                    )}`}
                   >
-                    <Download className="mr-1.5 h-4 w-4" />
-                    Download COA
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-ocean-mid text-ocean-mid hover:bg-ocean-foam"
-                  >
-                    <ExternalLink className="mr-1.5 h-4 w-4" />
-                    View Full Report
-                  </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-ocean-mid text-ocean-mid hover:bg-ocean-foam"
+                    >
+                      Request COA PDF
+                    </Button>
+                  </a>
                 </div>
               </div>
             ))}
