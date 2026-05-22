@@ -33,6 +33,15 @@ export async function POST(request: Request) {
 
     const to = process.env.CONTACT_EMAIL || 'hello@oceanahemp.com';
 
+    // If no Resend API key is set, return success so the site doesn't break
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_YOUR_RESEND_API_KEY_HERE') {
+      console.log('Contact form (no email service configured):', { name, email, subject, message });
+      return Response.json({
+        success: true,
+        message: 'Message recorded. Configure RESEND_API_KEY in .env.local to enable email delivery.',
+      });
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'OceanaHemp <hello@oceanahemp.com>',
       to: [to],

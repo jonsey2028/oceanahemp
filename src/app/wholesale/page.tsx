@@ -87,7 +87,7 @@ export default function WholesalePage() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      const res = await fetch('/api/wholesale.php', {
+      const res = await fetch('/api/wholesale', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

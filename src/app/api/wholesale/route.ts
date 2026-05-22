@@ -43,6 +43,15 @@ export async function POST(request: Request) {
 
     const to = process.env.WHOLESALE_EMAIL || 'wholesale@oceanahemp.com';
 
+    // If no Resend API key is set, return success so the site doesn't break
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_YOUR_RESEND_API_KEY_HERE') {
+      console.log('Wholesale form (no email service configured):', { businessName: fields.businessName, contactName: fields.contactName, email: fields.email });
+      return Response.json({
+        success: true,
+        message: 'Application recorded. Configure RESEND_API_KEY in .env.local to enable email delivery.',
+      });
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'OceanaHemp Wholesale <wholesale@oceanahemp.com>',
       to: [to],
