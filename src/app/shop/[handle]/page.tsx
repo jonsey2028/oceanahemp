@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -27,6 +28,27 @@ type Props = {
 
 export function generateStaticParams() {
   return mockProducts.map((p) => ({ handle: p.handle }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { handle } = await params;
+  const product = getProductByHandle(handle);
+  if (!product) {
+    return {
+      title: "Product Not Found | OceanaHemp",
+      description: "The requested product could not be found.",
+    };
+  }
+  return {
+    title: `${product.title} | OceanaHemp Store`,
+    description: product.shortDescription,
+    openGraph: {
+      title: `${product.title} | OceanaHemp`,
+      description: product.shortDescription,
+      url: `https://oceanahemp.com/shop/${handle}`,
+      images: [{ url: `https://oceanahemp.com${product.images[0].url}` }],
+    },
+  };
 }
 
 export default async function ProductPage({ params }: Props) {
