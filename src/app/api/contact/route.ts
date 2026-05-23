@@ -41,7 +41,10 @@ export async function POST(request: Request) {
 
     const { name, email, subject, message } = validation as { name: string; email: string; subject: string; message: string };
 
-    const to = process.env.CONTACT_EMAIL || 'hello@oceanahemp.com';
+    // NOTE: Resend sandbox only allows sending to the account owner email.
+    // Admin notifications are sent to misterjones.kj@gmail.com.
+    // Auto-replies to customers are skipped until the domain is verified.
+    const to = 'misterjones.kj@gmail.com';
 
     // If no Resend API key is set, return success so the site doesn't break
     const resend = getResend();
@@ -73,24 +76,6 @@ export async function POST(request: Request) {
     if (error) {
       console.error('Resend error:', error);
       return Response.json({ success: false, error: 'Failed to send email. Please try again later.' }, { status: 500 });
-    }
-
-    // Send auto-reply to the user
-    try {
-      await resend.emails.send({
-        from: 'OceanaHemp <onboarding@resend.dev>',
-        to: [email],
-        subject: 'We received your message — OceanaHemp',
-        text: `Hi ${name},\n\nThanks for reaching out to OceanaHemp! We have received your message about "${subject}" and will get back to you within 24 hours.\n\nWarm regards,\nThe OceanaHemp Team\nhello@oceanahemp.com`,
-        html: `
-          <p>Hi ${name},</p>
-          <p>Thanks for reaching out to OceanaHemp! We have received your message about "<strong>${subject}</strong>" and will get back to you within 24 hours.</p>
-          <p>Warm regards,<br/>The OceanaHemp Team<br/><a href="mailto:hello@oceanahemp.com">hello@oceanahemp.com</a></p>
-        `,
-      });
-    } catch (autoReplyErr) {
-      // Auto-reply failure should not break the main response
-      console.error('Auto-reply failed:', autoReplyErr);
     }
 
     return Response.json({ success: true, id: data?.id });

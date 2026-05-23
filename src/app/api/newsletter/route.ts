@@ -32,44 +32,22 @@ export async function POST(request: Request) {
       });
     }
 
-    // Send welcome email
-    const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp <onboarding@resend.dev>',
-      to: [email],
-      subject: 'Welcome to the OceanaHemp Inner Circle',
-      text: `Welcome to the OceanaHemp family!\n\nYou have joined our Inner Circle. You will be the first to hear about:\n\n- New product drops\n- Exclusive subscriber-only offers\n- Holistic wellness tips and CBD education\n- Behind-the-scenes stories from our lab and farm\n\nWarm regards,\nThe OceanaHemp Team\nhello@oceanahemp.com`,
-      html: `
-        <h2>Welcome to the OceanaHemp Family</h2>
-        <p>You have joined our Inner Circle. You will be the first to hear about:</p>
-        <ul>
-          <li>New product drops</li>
-          <li>Exclusive subscriber-only offers</li>
-          <li>Holistic wellness tips and CBD education</li>
-          <li>Behind-the-scenes stories from our lab and farm</li>
-        </ul>
-        <p>Warm regards,<br/>The OceanaHemp Team<br/><a href="mailto:hello@oceanahemp.com">hello@oceanahemp.com</a></p>
-      `,
-    });
-
-    if (error) {
-      console.error('Resend error:', error);
-      return Response.json({ success: false, error: 'Failed to send welcome email. Please try again later.' }, { status: 500 });
-    }
-
-    // Also notify admin
+    // NOTE: Resend sandbox only allows sending to the account owner email.
+    // Skip customer welcome email. Only notify admin.
     try {
       await resend.emails.send({
-        from: 'OceanaHemp <onboarding@resend.dev>',
-        to: [process.env.CONTACT_EMAIL || 'hello@oceanahemp.com'],
+        from: 'OceanaHemp \u003conboarding@resend.dev\u003e',
+        to: ['misterjones.kj@gmail.com'],
         subject: 'New Newsletter Subscriber',
         text: `New subscriber: ${email}`,
-        html: `<h2>New Newsletter Subscriber</h2><p><strong>Email:</strong> ${email}</p>`,
+        html: `\u003ch2\u003eNew Newsletter Subscriber\u003c/h2\u003e\u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${email}\u003c/p\u003e`,
       });
-    } catch (adminErr) {
-      console.error('Admin notification failed:', adminErr);
+    } catch (err) {
+      console.error('Admin notification failed:', err);
+      return Response.json({ success: false, error: 'Failed to record signup. Please try again later.' }, { status: 500 });
     }
 
-    return Response.json({ success: true, id: data?.id });
+    return Response.json({ success: true });
   } catch (err) {
     console.error('Newsletter API error:', err);
     return Response.json({ success: false, error: 'Something went wrong. Please try again.' }, { status: 500 });
