@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp <hello@oceanahemp.com>',
+      from: 'OceanaHemp <onboarding@resend.dev>',
       to: [to],
       replyTo: email,
       subject: `Contact: ${subject} from ${name}`,
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     // Send auto-reply to the user
     try {
       await resend.emails.send({
-        from: 'OceanaHemp <hello@oceanahemp.com>',
+        from: 'OceanaHemp <onboarding@resend.dev>',
         to: [email],
         subject: 'We received your message — OceanaHemp',
         text: `Hi ${name},\n\nThanks for reaching out to OceanaHemp! We have received your message about "${subject}" and will get back to you within 24 hours.\n\nWarm regards,\nThe OceanaHemp Team\nhello@oceanahemp.com`,

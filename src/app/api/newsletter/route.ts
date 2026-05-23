@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
     // Send welcome email
     const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp <hello@oceanahemp.com>',
+      from: 'OceanaHemp <onboarding@resend.dev>',
       to: [email],
       subject: 'Welcome to the OceanaHemp Inner Circle',
       text: `Welcome to the OceanaHemp family!\n\nYou have joined our Inner Circle. You will be the first to hear about:\n\n- New product drops\n- Exclusive subscriber-only offers\n- Holistic wellness tips and CBD education\n- Behind-the-scenes stories from our lab and farm\n\nWarm regards,\nThe OceanaHemp Team\nhello@oceanahemp.com`,
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     // Also notify admin
     try {
       await resend.emails.send({
-        from: 'OceanaHemp <hello@oceanahemp.com>',
+        from: 'OceanaHemp <onboarding@resend.dev>',
         to: [process.env.CONTACT_EMAIL || 'hello@oceanahemp.com'],
         subject: 'New Newsletter Subscriber',
         text: `New subscriber: ${email}`,

@@ -64,7 +64,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp Wholesale <wholesale@oceanahemp.com>',
+      from: 'OceanaHemp Wholesale <onboarding@resend.dev>',
       to: [to],
       replyTo: fields.email,
       subject: `Wholesale Application: ${fields.businessName}`,
@@ -107,7 +107,7 @@ ${fields.message}`,
     // Send confirmation to applicant
     try {
       await resend.emails.send({
-        from: 'OceanaHemp Wholesale <wholesale@oceanahemp.com>',
+        from: 'OceanaHemp Wholesale <onboarding@resend.dev>',
         to: [fields.email],
         subject: 'We received your wholesale application — OceanaHemp',
         text: `Hi ${fields.contactName},\n\nThanks for applying to become an OceanaHemp wholesale partner! We have received your application for ${fields.businessName}.\n\nOur wholesale team will review your application and get back to you within 2 business days.\n\nWarm regards,\nThe OceanaHemp Wholesale Team\nwholesale@oceanahemp.com`,
