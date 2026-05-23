@@ -7,6 +7,7 @@ const footerColumns = [
     title: "Shop",
     links: [
       { label: "All Products", href: "/shop" },
+      { label: "CBD Tincture", href: "/shop/full-spectrum-cbd-tincture" },
       { label: "Pet Tincture", href: "/shop/cbd-pet-tincture" },
       { label: "Face Spray", href: "/shop/water-soluble-cbd-face-spray" },
       { label: "Massage Oil", href: "/shop/full-spectrum-massage-oil" },

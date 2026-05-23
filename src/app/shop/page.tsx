@@ -74,7 +74,7 @@ function ShopContent() {
                     : "text-slate"
                 }
               >
-                🐾 Pet Tincture
+                🧪 Tinctures
               </Button>
             </Link>
             <Link href="/shop?form=oils">

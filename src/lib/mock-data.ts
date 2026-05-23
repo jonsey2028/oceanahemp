@@ -2,11 +2,39 @@ import type { Product, Review } from "@/types/product";
 
 const IMG = {
   petTincture: "/products/pet-tincture.jpg",
-  faceSpray: "/products/face-spray.jpg",
+  faceSpray: "/products/face-spray-new.jpg",
   massageOil: "/products/massage-oil.jpg",
+  humanTincture: "/products/human-tincture.jpg",
 };
 
 export const mockProducts: Product[] = [
+  {
+    id: "4",
+    handle: "full-spectrum-cbd-tincture",
+    title: "Full Spectrum CBD Tincture",
+    description:
+      "Our flagship full spectrum CBD tincture, crafted for daily wellness. Organically grown hemp, precise extraction, clean MCT carrier. Supports calm, focus, recovery, and balance. Third-party tested, zero compromises.",
+    shortDescription: "Full spectrum CBD tincture for daily calm, focus & balance",
+    price: 30.95,
+    images: [
+      { url: IMG.humanTincture, alt: "OceanaHemp Full Spectrum CBD Tincture" },
+    ],
+    benefit: "relaxation",
+    form: "tinctures",
+    variants: [
+      { id: "4-500mg", title: "1 oz (500mg)", price: 30.95, available: true },
+    ],
+    rating: 4.9,
+    reviewCount: 156,
+    subscriptionAvailable: true,
+    subscriptionDiscount: 25,
+    badge: "Popular",
+    ingredients: [
+      "Oceana Hemp Full Spectrum Extract (500mg cannabinoids)",
+      "Organic MCT Oil",
+    ],
+    usage: "Place 1 dropper (1 mL) under tongue. Hold 30-60 seconds before swallowing. Adjust as needed. Use daily for best results.",
+  },
   {
     id: "1",
     handle: "cbd-pet-tincture",
@@ -14,14 +42,14 @@ export const mockProducts: Product[] = [
     description:
       "Because your best friend deserves the same quality you'd give yourself. Our full spectrum CBD pet tincture is formulated specifically for dogs and cats. organic ingredients, precise dosing, and savory bacon flavor they actually love. Supports neurology, immunity, hip & joint mobility, relaxation, and everyday wellness.",
     shortDescription: "Full spectrum CBD pet tincture. calm, joints, immunity, everyday wellness",
-    price: 40.95,
+    price: 30.95,
     images: [
       { url: IMG.petTincture, alt: "OceanaHemp Pets Full Spectrum CBD Oil" },
     ],
     benefit: "pets",
     form: "tinctures",
     variants: [
-      { id: "1-300mg", title: "1 oz (300mg) Small Breed", price: 40.95, available: true },
+      { id: "1-300mg", title: "1 oz (300mg) Small Breed", price: 30.95, available: true },
       { id: "1-600mg", title: "2 oz (600mg) Medium Breed", price: 54.95, available: true },
       { id: "1-1000mg", title: "2 oz (1000mg) Large Breed", price: 69.95, available: true },
     ],
@@ -42,16 +70,16 @@ export const mockProducts: Product[] = [
     handle: "water-soluble-cbd-face-spray",
     title: "Water-Soluble CBD Face Spray",
     description:
-      "A refreshing face mist that actually does something. Our water-soluble CBD formula delivers cannabinoids where your skin needs them most, no greasy residue, no heavy feel, no nonsense. Spray it on after cleansing, before makeup, or anytime you need a reset. Your skin deserves better than empty promises.",
-    shortDescription: "Water-soluble CBD face mist for refreshed, nourished skin",
-    price: 39.99,
+      "A refreshing face mist that actually does something. Our INDICATED water-soluble CBD formula with rosewater delivers cannabinoids where your skin needs them most, no greasy residue, no heavy feel, no nonsense. Spray it on after cleansing, before makeup, or anytime you need a reset. Your skin deserves better than empty promises.",
+    shortDescription: "INDICATED Water-Soluble CBD face mist with rosewater for refreshed, nourished skin",
+    price: 30.95,
     images: [
-      { url: IMG.faceSpray, alt: "OceanaHemp Water-Soluble CBD Face Spray" },
+      { url: IMG.faceSpray, alt: "INDICATED Water-Soluble CBD Face Spray" },
     ],
     benefit: "skincare",
     form: "sprays",
     variants: [
-      { id: "2-2oz", title: "2 oz (250mg)", price: 39.99, available: true },
+      { id: "2-2oz", title: "2 oz (250mg)", price: 30.95, available: true },
     ],
     rating: 4.8,
     reviewCount: 89,
@@ -61,6 +89,7 @@ export const mockProducts: Product[] = [
     ingredients: [
       "Water-Soluble CBD Extract (250mg cannabinoids)",
       "Purified Water",
+      "Organic Rosewater",
       "Aloe Vera",
       "Witch Hazel",
       "Hyaluronic Acid",
@@ -75,14 +104,14 @@ export const mockProducts: Product[] = [
     description:
       "Melt away tension with our full spectrum CBD massage oil. Crafted from organically grown hemp and infused with soothing botanicals, this oil absorbs deep into tired muscles so you can finally unwind. No synthetic ingredients. No fillers. Just pure, potent relief that actually works.",
     shortDescription: "Full spectrum CBD massage oil for deep relaxation & muscle relief",
-    price: 49.99,
+    price: 30.95,
     images: [
       { url: IMG.massageOil, alt: "OceanaHemp Full Spectrum Massage Oil" },
     ],
     benefit: "relaxation",
     form: "oils",
     variants: [
-      { id: "3-4oz", title: "4 oz (500mg)", price: 49.99, available: true },
+      { id: "3-4oz", title: "4 oz (500mg)", price: 30.95, available: true },
     ],
     rating: 4.9,
     reviewCount: 127,
@@ -94,7 +123,6 @@ export const mockProducts: Product[] = [
       "Organic MCT Oil",
       "Organic Arnica Montana",
       "Organic Lavender Essential Oil",
-      "Vitamin E",
     ],
     usage: "Apply generously to areas of tension. Massage in circular motions until absorbed. Use as needed.",
   },
@@ -122,7 +150,7 @@ export const benefitConfig: Record<
     label: "Relaxation",
     icon: "🧘",
     tagline: "Unwind naturally",
-    description: "Full spectrum CBD massage oil crafted to melt away tension and help you find your calm.",
+    description: "Full spectrum CBD tincture and massage oil crafted to melt away tension and help you find your calm.",
     color: "from-ocean-mid to-hemp-green",
   },
 };
