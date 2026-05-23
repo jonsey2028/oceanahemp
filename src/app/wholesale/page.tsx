@@ -87,43 +87,42 @@ export default function WholesalePage() {
     setSubmitting(true);
     setSubmitError('');
 
-    // Fallback: open mailto since we're on static hosting without a backend
-    const subjectLine = encodeURIComponent(`Wholesale Application: ${formData.businessName}`);
-    const body = encodeURIComponent(
-      `Business: ${formData.businessName}\n` +
-      `Contact: ${formData.contactName}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n` +
-      `Business Type: ${formData.businessType || 'N/A'}\n` +
-      `Website: ${formData.website || 'N/A'}\n` +
-      `EIN: ${formData.ein || 'N/A'}\n` +
-      `Address: ${formData.address || ''}, ${formData.city || ''}, ${formData.state || ''} ${formData.zip || ''}\n` +
-      `Resale License: ${formData.resaleLicense || 'N/A'}\n` +
-      `Products of Interest: ${formData.productsInterest || 'N/A'}\n\n` +
-      `Message:\n${formData.message || 'N/A'}`
-    );
-    const mailto = `mailto:wholesale@oceanahemp.com?subject=${subjectLine}&body=${body}`;
-
-    window.location.href = mailto;
-
-    setSubmitted(true);
-    setFormData({
-      businessName: '',
-      businessType: '',
-      contactName: '',
-      email: '',
-      phone: '',
-      website: '',
-      ein: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
-      resaleLicense: '',
-      productsInterest: '',
-      message: '',
-    });
-    setSubmitting(false);
+    try {
+      const res = await fetch('/api/wholesale', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+        setSubmitting(false);
+        return;
+      }
+      setSubmitted(true);
+      setFormData({
+        businessName: '',
+        businessType: '',
+        contactName: '',
+        email: '',
+        phone: '',
+        website: '',
+        ein: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        resaleLicense: '',
+        productsInterest: '',
+        message: '',
+      });
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch (err) {
+      setSubmitError('Network error. Please check your connection and try again.');
+      console.error('Wholesale submission error:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const update = (field: string, value: string) =>

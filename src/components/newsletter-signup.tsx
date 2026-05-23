@@ -25,11 +25,21 @@ export default function NewsletterSignup({ variant = 'card', className = '' }: N
     setSubmitting(true);
     setError('');
 
-    // Simulated success (no backend yet - static hosting)
-    // In production, wire this to an email service like Resend, Mailchimp, or Beehiiv
-    setSubmitted(true);
-    setEmail('');
-    setTimeout(() => setSubmitted(false), 8000);
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setError(data.error || 'Something went wrong. Please try again.');
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => setSubmitted(false), 8000);
     setSubmitting(false);
   };
 

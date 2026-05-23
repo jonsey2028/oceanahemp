@@ -1,5 +1,7 @@
 import { Resend } from 'resend';
 
+export const runtime = 'nodejs';
+
 let resend: Resend | null = null;
 function getResend(): Resend | null {
   if (!resend) {
