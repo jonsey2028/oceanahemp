@@ -20,9 +20,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OceanaHemp: Premium CBD for Your Wellness Journey",
+  title: "OceanaHemp: Premium CBD for Pets, Skincare & Wellness",
   description:
-    "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+. Subscribe \u0026 save. 60-day guarantee.",
+    "Shop organically grown, lab-tested CBD tinctures for pets, massage oil, and face spray. Free shipping on $75+. Subscribe \u0026 save 25%. 60-day guarantee.",
   keywords: [
     "CBD",
     "hemp",
@@ -37,12 +37,20 @@ export const metadata: Metadata = {
     "OceanaHemp",
   ],
   openGraph: {
-    title: "OceanaHemp: Premium CBD for Your Wellness Journey",
+    title: "OceanaHemp: Premium CBD for Pets, Skincare & Wellness",
     description:
-      "Shop organically grown, lab-tested CBD massage oil and face spray. Free shipping on $75+.",
+      "Shop organically grown, lab-tested CBD tinctures for pets, massage oil, and face spray. Free shipping on $75+. Subscribe \u0026 save 25%.",
     url: "https://oceanahemp.com",
     siteName: "OceanaHemp",
     type: "website",
+    images: [
+      {
+        url: "https://oceanahemp.com/products/pet-tincture.jpg",
+        width: 1254,
+        height: 1254,
+        alt: "OceanaHemp Premium CBD Products - Lab Tested, Organically Grown",
+      },
+    ],
   },
 };
 
@@ -51,7 +59,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "OceanaHemp",
   url: "https://oceanahemp.com",
-  logo: "https://oceanahemp.com/logo.png",
+  logo: "https://oceanahemp.com/products/pet-tincture.jpg",
   description:
     "Premium CBD products crafted from organically grown, USA-sourced hemp. Third-party lab tested, third-party verified.",
   contactPoint: {
@@ -61,7 +69,11 @@ const organizationJsonLd = {
     email: "hello@oceanahemp.com",
     availableLanguage: "English",
   },
-  sameAs: [],
+  sameAs: [
+    "https://instagram.com/oceanahemp",
+    "https://twitter.com/oceanahemp",
+    "https://facebook.com/oceanahemp",
+  ],
 };
 
 const localBusinessJsonLd = {

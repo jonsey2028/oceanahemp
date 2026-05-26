@@ -199,7 +199,7 @@ export default function CartPage() {
                           )}
                         </div>
                         <button
-                          onClick={() => removeItem(item.variant.id)}
+                          onClick={() => removeItem(item.variant.id, item.isSubscription)}
                           className="shrink-0 p-1.5 rounded-lg text-slate hover:text-coral hover:bg-coral/10 transition-colors"
                           aria-label={`Remove ${item.product.title}`}
                         >
@@ -211,7 +211,7 @@ export default function CartPage() {
                         <div className="flex items-center gap-1">
                           <button
                             onClick={() =>
-                              updateQuantity(item.variant.id, item.quantity - 1)
+                              updateQuantity(item.variant.id, item.quantity - 1, item.isSubscription)
                             }
                             className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-slate hover:bg-ocean-foam hover:text-ocean-mid hover:border-ocean-mid transition-colors"
                             aria-label="Decrease quantity"
@@ -223,7 +223,7 @@ export default function CartPage() {
                           </span>
                           <button
                             onClick={() =>
-                              updateQuantity(item.variant.id, item.quantity + 1)
+                              updateQuantity(item.variant.id, item.quantity + 1, item.isSubscription)
                             }
                             className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-slate hover:bg-ocean-foam hover:text-ocean-mid hover:border-ocean-mid transition-colors"
                             aria-label="Increase quantity"

@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 
 const labReports = [
   {
+    product: "Full Spectrum CBD Tincture",
+    batch: "OH-HUMAN-2026-04",
+    date: "April 2026",
+    cannabinoids: "504.2mg CBD, 22.1mg CBG, 14.8mg CBC, 8.2mg CBN",
+    thc: "0.22%",
+    contaminants: "None detected",
+    status: "Pass",
+  },
+  {
     product: "Pets Full Spectrum CBD Oil",
     batch: "OH-PET-2026-04",
     date: "April 2026",

@@ -36,7 +36,7 @@ const navLinks = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
-  const { itemCount } = useCart();
+  const { itemCount, hydrated } = useCart();
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border">
@@ -164,14 +164,15 @@ export function Header() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden sm:flex"
-              aria-label="Search products"
-            >
-              <Search className="h-5 w-5" />
-            </Button>
+            <Link href="/shop" aria-label="Search products">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hidden sm:flex"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            </Link>
             <Link href="/account" aria-label="Account">
               <Button variant="ghost" size="icon" className="hidden sm:flex">
                 <User className="h-5 w-5" />
@@ -180,7 +181,7 @@ export function Header() {
             <Link href="/cart" aria-label="Shopping cart">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingCart className="h-5 w-5" />
-                {itemCount > 0 && (
+                {itemCount > 0 && hydrated && (
                   <span className="absolute -top-1 -right-1 bg-coral text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
                     {itemCount}
                   </span>

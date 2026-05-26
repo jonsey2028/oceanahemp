@@ -18,8 +18,8 @@ interface CartContextValue {
     quantity?: number,
     isSubscription?: boolean
   ) => void;
-  removeItem: (variantId: string) => void;
-  updateQuantity: (variantId: string, quantity: number) => void;
+  removeItem: (variantId: string, isSubscription?: boolean) => void;
+  updateQuantity: (variantId: string, quantity: number, isSubscription?: boolean) => void;
   clearCart: () => void;
   itemCount: number;
   subtotal: number;
@@ -75,10 +75,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       isSubscription = false
     ) => {
       setItems((prev) => {
-        const existing = prev.find((i) => i.variant.id === variant.id);
+        const existing = prev.find(
+          (i) => i.variant.id === variant.id && i.isSubscription === isSubscription
+        );
         if (existing) {
           return prev.map((i) =>
-            i.variant.id === variant.id
+            i.variant.id === variant.id && i.isSubscription === isSubscription
               ? { ...i, quantity: i.quantity + quantity }
               : i
           );
@@ -92,20 +94,31 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
-  const removeItem = useCallback((variantId: string) => {
-    setItems((prev) => prev.filter((i) => i.variant.id !== variantId));
+  const removeItem = useCallback((variantId: string, isSubscription = false) => {
+    setItems((prev) =>
+      prev.filter(
+        (i) => !(i.variant.id === variantId && i.isSubscription === isSubscription)
+      )
+    );
   }, []);
 
-  const updateQuantity = useCallback((variantId: string, quantity: number) => {
-    setItems((prev) => {
-      if (quantity <= 0) {
-        return prev.filter((i) => i.variant.id !== variantId);
-      }
-      return prev.map((i) =>
-        i.variant.id === variantId ? { ...i, quantity } : i
-      );
-    });
-  }, []);
+  const updateQuantity = useCallback(
+    (variantId: string, quantity: number, isSubscription = false) => {
+      setItems((prev) => {
+        if (quantity <= 0) {
+          return prev.filter(
+            (i) => !(i.variant.id === variantId && i.isSubscription === isSubscription)
+          );
+        }
+        return prev.map((i) =>
+          i.variant.id === variantId && i.isSubscription === isSubscription
+            ? { ...i, quantity }
+            : i
+        );
+      });
+    },
+    []
+  );
 
   const clearCart = useCallback(() => {
     setItems([]);

@@ -36,11 +36,20 @@ export async function POST(request: Request) {
     // Skip customer welcome email. Only notify admin.
     try {
       await resend.emails.send({
-        from: 'OceanaHemp \u003conboarding@resend.dev\u003e',
+        from: 'OceanaHemp \u003chello@oceanahemp.com\u003e',
         to: ['misterjones.kj@gmail.com'],
         subject: 'New Newsletter Subscriber',
         text: `New subscriber: ${email}`,
         html: `\u003ch2\u003eNew Newsletter Subscriber\u003c/h2\u003e\u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${email}\u003c/p\u003e`,
+      }).catch(async (err) => {
+        console.log('Domain send failed, falling back to sandbox:', err);
+        return resend.emails.send({
+          from: 'OceanaHemp \u003conboarding@resend.dev\u003e',
+          to: ['misterjones.kj@gmail.com'],
+          subject: 'New Newsletter Subscriber',
+          text: `New subscriber: ${email}`,
+          html: `\u003ch2\u003eNew Newsletter Subscriber\u003c/h2\u003e\u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${email}\u003c/p\u003e`,
+        });
       });
     } catch (err) {
       console.error('Admin notification failed:', err);

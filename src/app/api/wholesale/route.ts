@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp Wholesale <onboarding@resend.dev>',
+      from: 'OceanaHemp Wholesale \u003cwholesale@oceanahemp.com\u003e',
       to: [to],
       replyTo: fields.email,
       subject: `Wholesale Application: ${fields.businessName}`,
@@ -83,21 +83,58 @@ Products of Interest: ${fields.productsInterest || 'N/A'}
 Message:
 ${fields.message}`,
       html: `
-        <h2>New Wholesale Application</h2>
-        <p><strong>Business:</strong> ${fields.businessName}</p>
-        <p><strong>Contact:</strong> ${fields.contactName}</p>
-        <p><strong>Email:</strong> ${fields.email}</p>
-        <p><strong>Phone:</strong> ${fields.phone}</p>
-        <p><strong>Business Type:</strong> ${fields.businessType || 'N/A'}</p>
-        <p><strong>Website:</strong> ${fields.website || 'N/A'}</p>
-        <p><strong>EIN:</strong> ${fields.ein || 'N/A'}</p>
-        <p><strong>Address:</strong> ${fields.address || ''}, ${fields.city || ''}, ${fields.state || ''} ${fields.zip || ''}</p>
-        <p><strong>Resale License:</strong> ${fields.resaleLicense || 'N/A'}</p>
-        <p><strong>Products of Interest:</strong> ${fields.productsInterest || 'N/A'}</p>
-        <hr/>
-        <p><strong>Message:</strong></p>
-        <p>${fields.message.replace(/\n/g, '<br/>')}</p>
+        \u003ch2\u003eNew Wholesale Application\u003c/h2\u003e
+        \u003cp\u003e\u003cstrong\u003eBusiness:\u003c/strong\u003e ${fields.businessName}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eContact:\u003c/strong\u003e ${fields.contactName}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${fields.email}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003ePhone:\u003c/strong\u003e ${fields.phone}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eBusiness Type:\u003c/strong\u003e ${fields.businessType || 'N/A'}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eWebsite:\u003c/strong\u003e ${fields.website || 'N/A'}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eEIN:\u003c/strong\u003e ${fields.ein || 'N/A'}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eAddress:\u003c/strong\u003e ${fields.address || ''}, ${fields.city || ''}, ${fields.state || ''} ${fields.zip || ''}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eResale License:\u003c/strong\u003e ${fields.resaleLicense || 'N/A'}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eProducts of Interest:\u003c/strong\u003e ${fields.productsInterest || 'N/A'}\u003c/p\u003e
+        \u003chr/\u003e
+        \u003cp\u003e\u003cstrong\u003eMessage:\u003c/strong\u003e\u003c/p\u003e
+        \u003cp\u003e${fields.message.replace(/\\n/g, '\u003cbr/\u003e')}\u003c/p\u003e
       `,
+    }).catch(async (err) => {
+      console.log('Domain send failed, falling back to sandbox:', err);
+      return resend.emails.send({
+        from: 'OceanaHemp Wholesale \u003conboarding@resend.dev\u003e',
+        to: [to],
+        replyTo: fields.email,
+        subject: `Wholesale Application: ${fields.businessName}`,
+        text: `Business: ${fields.businessName}
+Contact: ${fields.contactName}
+Email: ${fields.email}
+Phone: ${fields.phone}
+Business Type: ${fields.businessType}
+Website: ${fields.website || 'N/A'}
+EIN: ${fields.ein || 'N/A'}
+Address: ${fields.address || ''}, ${fields.city || ''}, ${fields.state || ''} ${fields.zip || ''}
+Resale License: ${fields.resaleLicense || 'N/A'}
+Products of Interest: ${fields.productsInterest || 'N/A'}
+
+Message:
+${fields.message}`,
+        html: `
+          \u003ch2\u003eNew Wholesale Application\u003c/h2\u003e
+          \u003cp\u003e\u003cstrong\u003eBusiness:\u003c/strong\u003e ${fields.businessName}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eContact:\u003c/strong\u003e ${fields.contactName}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${fields.email}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003ePhone:\u003c/strong\u003e ${fields.phone}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eBusiness Type:\u003c/strong\u003e ${fields.businessType || 'N/A'}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eWebsite:\u003c/strong\u003e ${fields.website || 'N/A'}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eEIN:\u003c/strong\u003e ${fields.ein || 'N/A'}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eAddress:\u003c/strong\u003e ${fields.address || ''}, ${fields.city || ''}, ${fields.state || ''} ${fields.zip || ''}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eResale License:\u003c/strong\u003e ${fields.resaleLicense || 'N/A'}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eProducts of Interest:\u003c/strong\u003e ${fields.productsInterest || 'N/A'}\u003c/p\u003e
+          \u003chr/\u003e
+          \u003cp\u003e\u003cstrong\u003eMessage:\u003c/strong\u003e\u003c/p\u003e
+          \u003cp\u003e${fields.message.replace(/\\n/g, '\u003cbr/\u003e')}\u003c/p\u003e
+        `,
+      });
     });
 
     if (error) {

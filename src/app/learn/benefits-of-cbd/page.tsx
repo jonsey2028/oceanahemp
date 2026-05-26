@@ -13,7 +13,7 @@ const benefits = [
     studies: "A 2019 study in The Permanente Journal found that 66.7% of participants experienced improved sleep within one month of CBD use. 25mg daily 1 hour before bed showed the best results.",
     product: "Massage Oil",
     link: "/shop/full-spectrum-massage-oil",
-    usage: "Apply to neck and shoulders 60 minutes before bed. Optional: 0.25 mL sublingual pet tincture for anxious pets who pace.",
+    usage: "Apply to neck and shoulders 60 minutes before bed. Massage until fully absorbed.",
   },
   {
     area: "Exercise Recovery",
@@ -27,9 +27,9 @@ const benefits = [
     area: "Stress and Calm",
     summary: "CBD modulates serotonin receptor (5-HT1A) activity and GABA signaling, which helps your nervous system return to baseline faster after stress.",
     studies: "A 2022 Brazilian double-blind study published in Neurotherapeutics found that 300mg daily CBD significantly reduced cortisol response to the Trier Social Stress Test. Participants reported feeling significantly calmer under pressure.",
-    product: "Massage Oil",
-    link: "/shop/full-spectrum-massage-oil",
-    usage: "Apply to temples and pulse points during acute stress. Or take 0.5-1 mL sublingual for systemic calm.",
+    product: "CBD Tincture",
+    link: "/shop/full-spectrum-cbd-tincture",
+    usage: "Place 0.5-1 mL under the tongue. Hold 30-60 seconds before swallowing. Use daily for best results.",
   },
   {
     area: "Pet Wellness",
@@ -51,9 +51,9 @@ const benefits = [
     area: "Immune Support",
     summary: "CBD's regulatory effects on cytokine signaling may help maintain immune homeostasis, supporting your body's natural defense response without overstimulation.",
     studies: "Journal of Immunology Research (2021): CBD demonstrated immunomodulatory effects by suppressing excessive pro-inflammatory cytokines while preserving immune cell viability. Particularly relevant for autoimmune conditions.",
-    product: "Pet Tincture (pets)",
-    link: "/shop/cbd-pet-tincture",
-    usage: "For pet immune support, administer 0.25-0.5 mL daily with food. Monitor energy and mobility changes over 2-4 weeks.",
+    product: "CBD Tincture",
+    link: "/shop/full-spectrum-cbd-tincture",
+    usage: "Take 0.5-1 mL sublingual daily with food. Monitor energy and wellness changes over 2-4 weeks.",
   },
 ];
 

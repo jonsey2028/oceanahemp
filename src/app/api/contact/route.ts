@@ -57,20 +57,39 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'OceanaHemp <onboarding@resend.dev>',
+      from: 'OceanaHemp \u003chello@oceanahemp.com\u003e',
       to: [to],
       replyTo: email,
       subject: `Contact: ${subject} from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <hr/>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br/>')}</p>
+        \u003ch2\u003eNew Contact Form Submission\u003c/h2\u003e
+        \u003cp\u003e\u003cstrong\u003eName:\u003c/strong\u003e ${name}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${email}\u003c/p\u003e
+        \u003cp\u003e\u003cstrong\u003eSubject:\u003c/strong\u003e ${subject}\u003c/p\u003e
+        \u003chr/\u003e
+        \u003cp\u003e\u003cstrong\u003eMessage:\u003c/strong\u003e\u003c/p\u003e
+        \u003cp\u003e${message.replace(/\\n/g, '\u003cbr/\u003e')}\u003c/p\u003e
       `,
+    }).catch(async (err) => {
+      // Fallback to sandbox domain if unverified domain rejected
+      console.log('Domain send failed, falling back to sandbox:', err);
+      return resend.emails.send({
+        from: 'OceanaHemp \u003conboarding@resend.dev\u003e',
+        to: [to],
+        replyTo: email,
+        subject: `Contact: ${subject} from ${name}`,
+        text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+        html: `
+          \u003ch2\u003eNew Contact Form Submission\u003c/h2\u003e
+          \u003cp\u003e\u003cstrong\u003eName:\u003c/strong\u003e ${name}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e ${email}\u003c/p\u003e
+          \u003cp\u003e\u003cstrong\u003eSubject:\u003c/strong\u003e ${subject}\u003c/p\u003e
+          \u003chr/\u003e
+          \u003cp\u003e\u003cstrong\u003eMessage:\u003c/strong\u003e\u003c/p\u003e
+          \u003cp\u003e${message.replace(/\\n/g, '\u003cbr/\u003e')}\u003c/p\u003e
+        `,
+      });
     });
 
     if (error) {

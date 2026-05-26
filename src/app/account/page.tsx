@@ -86,6 +86,13 @@ export default function AccountPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  {showLogin && (
+                    <p className="text-sm text-slate mt-1">
+                      <a href="mailto:hello@oceanahemp.com?subject=Forgot+Password" className="text-ocean-mid hover:text-ocean-deep underline">
+                        Forgot password?
+                      </a>
+                    </p>
+                  )}
                 </div>
 
                 <Button

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   mockProducts,
-  mockReviews,
+  petTinctureReviews,
   benefitConfig,
 } from "@/lib/mock-data";
 import { motion } from "framer-motion";
@@ -132,9 +132,8 @@ export default function Home() {
                 <span className="text-ocean-foam">So Do We.</span>
               </h1>
               <p className="text-lg text-white/80 max-w-lg leading-relaxed">
-                Every Oceana product is a promise. the finest hemp, the
-purest extracts, the most effective formulations.
-              
+                Every Oceana product is a promise. The finest hemp, the
+                purest extracts, the most effective formulations.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/shop">
@@ -240,6 +239,7 @@ purest extracts, the most effective formulations.
             <span className="flex items-center gap-2">🇺🇸 USA Hemp</span>
             <span className="flex items-center gap-2">✅ GMP Certified</span>
             <span className="flex items-center gap-2">🔄 60-Day Guarantee</span>
+            <span className="flex items-center gap-2">💰 Subscribe & Save 25%</span>
           </div>
         </div>
       </section>
@@ -406,26 +406,26 @@ purest extracts, the most effective formulations.
         </div>
       </section>
 
-      {/* ─── AS FEATURED IN ─── */}
+      {/* ─── TRUSTED ACROSS CATEGORIES ─── */}
       <section className="py-8 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold tracking-widest uppercase text-slate/60 mb-4">
-            As Featured In
+            Trusted Across
           </p>
           <div className="flex items-center justify-center gap-8 sm:gap-12 overflow-x-auto pb-2 scrollbar-hide">
             {[
-              "Wellness Weekly",
-              "Green Living Today",
-              "Coastal Health Journal",
-              "Natural Products Insider",
-              "Pet Wellness Magazine",
-              "Mindful CBD",
-            ].map((pub) => (
+              "Health & Wellness",
+              "Pet Care",
+              "Natural Products",
+              "Coastal Living",
+              "Recovery & Fitness",
+              "Clean Beauty",
+            ].map((cat) => (
               <span
-                key={pub}
+                key={cat}
                 className="whitespace-nowrap text-sm sm:text-base font-medium text-slate/40 hover:text-ocean-mid transition-colors"
               >
-                {pub}
+                {cat}
               </span>
             ))}
           </div>
@@ -436,15 +436,16 @@ purest extracts, the most effective formulations.
       <section className="py-16 lg:py-24 bg-ocean-foam">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <span className="text-sm font-medium text-hemp-green mb-2 block">🐾 PET PARENTS</span>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-ocean-deep">
-              Real People, Real Results
+              Real Pets, Real Results
             </h2>
             <p className="mt-3 text-slate text-lg">
-              Thousands of happy customers agree.
+              Join 200+ happy pet parents who trust OceanaHemp.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {mockReviews.map((review) => (
+            {petTinctureReviews.map((review) => (
               <div
                 key={review.id}
                 className="bg-white rounded-2xl p-6 shadow-card"

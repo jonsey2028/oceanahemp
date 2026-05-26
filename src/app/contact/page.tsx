@@ -342,7 +342,7 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white rounded-2xl border border-border shadow-card overflow-hidden">
-            <Accordion>
+            <Accordion defaultValue={[]}>
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`faq-${index}`}>
                   <AccordionTrigger className="px-6 py-4 text-left font-heading text-base font-semibold text-ocean-deep hover:text-ocean-mid hover:no-underline">

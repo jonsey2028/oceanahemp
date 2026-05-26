@@ -176,7 +176,7 @@ export default function QuizPage() {
           )}
 
           {/* ─── STEP 1: Goal ─── */}
-          {step === 0 && (
+          {!showResult && step === 0 && (
             <div className="animate-[fadeIn_0.4s_ease-out]">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-ocean-deep text-center mb-2">
                 What are you looking for?
@@ -202,7 +202,7 @@ export default function QuizPage() {
           )}
 
           {/* ─── STEP 2: Experience ─── */}
-          {step === 1 && (
+          {!showResult && step === 1 && (
             <div className="animate-[fadeIn_0.4s_ease-out]">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-ocean-deep text-center mb-2">
                 What's your CBD experience level?
@@ -240,7 +240,7 @@ export default function QuizPage() {
           )}
 
           {/* ─── STEP 3: Form ─── */}
-          {step === 2 && (
+          {!showResult && step === 2 && (
             <div className="animate-[fadeIn_0.4s_ease-out]">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-ocean-deep text-center mb-2">
                 What form do you prefer?
@@ -273,7 +273,7 @@ export default function QuizPage() {
           )}
 
           {/* ─── STEP 4: Preference ─── */}
-          {step === 3 && (
+          {!showResult && step === 3 && (
             <div className="animate-[fadeIn_0.4s_ease-out]">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-ocean-deep text-center mb-2">
                 What matters most to you?
