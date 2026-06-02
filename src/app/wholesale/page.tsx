@@ -445,15 +445,6 @@ export default function WholesalePage() {
             typically respond within one business day.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="mailto:wholesale@oceanahemp.com">
-              <Button
-                size="lg"
-                className="bg-white text-ocean-deep hover:bg-ocean-foam font-semibold text-base px-8"
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                wholesale@oceanahemp.com
-              </Button>
-            </a>
             <a href="tel:+18583658439">
               <Button
                 size="lg"

@@ -31,14 +31,6 @@ import {
 
 const contactCards = [
   {
-    icon: <Mail className="h-5 w-5" />,
-    label: 'Email Us',
-    value: 'hello@oceanahemp.com',
-    sublabel: 'We respond within 24 hours',
-    color: 'text-ocean-mid',
-    bg: 'bg-ocean-foam',
-  },
-  {
     icon: <Phone className="h-5 w-5" />,
     label: 'Call Us',
     value: '(858) 365-8439',
@@ -51,7 +43,7 @@ const contactCards = [
     icon: <Clock className="h-5 w-5" />,
     label: 'Business Hours',
     value: 'Mon to Fri 9am to 5pm PST',
-    sublabel: 'Closed weekends \u0026 holidays',
+    sublabel: 'Closed weekends & holidays',
     color: 'text-ocean-deep',
     bg: 'bg-ocean-foam',
   },
@@ -369,15 +361,6 @@ export default function ContactPage() {
             product for your needs. Don&apos;t hesitate to reach out.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="mailto:hello@oceanahemp.com">
-              <Button
-                size="lg"
-                className="bg-white text-ocean-deep hover:bg-ocean-foam font-semibold text-base px-8"
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                Email Us
-              </Button>
-            </a>
             <a href="tel:+18583658439">
               <Button
                 size="lg"
