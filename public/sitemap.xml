@@ -1,113 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://oceanahemp.com/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://oceanahemp.com/products/pet-tincture.jpg</image:loc>
+      <image:caption>OceanaHemp Premium CBD Products</image:caption>
+    </image:image>
   </url>
+
   <url>
     <loc>https://oceanahemp.com/shop</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://oceanahemp.com/shop/cbd-pet-tincture</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/shop/water-soluble-cbd-face-spray</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/shop/full-spectrum-massage-oil</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/learn</loc>
+    <loc>https://oceanahemp.com/shop/full-spectrum-cbd-tincture</loc>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oceanahemp.com/products/human-tincture.jpg</image:loc>
+      <image:caption>Full Spectrum CBD Tincture - OceanaHemp</image:caption>
+    </image:image>
   </url>
+
+  <url>
+    <loc>https://oceanahemp.com/shop/cbd-pet-tincture</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oceanahemp.com/products/pet-tincture.jpg</image:loc>
+      <image:caption>Pets Full Spectrum CBD Oil - OceanaHemp</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://oceanahemp.com/shop/full-spectrum-massage-oil</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oceanahemp.com/products/massage-oil.jpg</image:loc>
+      <image:caption>Full Spectrum CBD Massage Oil - OceanaHemp</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://oceanahemp.com/shop/water-soluble-cbd-face-spray</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oceanahemp.com/products/face-spray-new.jpg</image:loc>
+      <image:caption>Water Soluble CBD Face Spray - OceanaHemp</image:caption>
+    </image:image>
+  </url>
+
   <url>
     <loc>https://oceanahemp.com/learn/what-is-cbd</loc>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://oceanahemp.com/learn/cbd-dosage-guide</loc>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://oceanahemp.com/learn/benefits-of-cbd</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://oceanahemp.com/learn/full-vs-broad-vs-isolate</loc>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://oceanahemp.com/learn/cbd-for-pets</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://oceanahemp.com/learn/cbd-for-skincare</loc>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/quiz</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/wholesale</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/account</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/cart</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/privacy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/terms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://oceanahemp.com/lab-results</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>

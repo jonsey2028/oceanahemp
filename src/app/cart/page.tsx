@@ -67,7 +67,7 @@ export default function CartPage() {
   };
 
   const handleCheckout = () => {
-    window.location.href = "/contact?type=order";
+    window.location.href = "/checkout";
   };
 
   // Loading state while hydrating from localStorage

@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { AddToCartSection } from "@/components/add-to-cart-section";
+import { ShareButtons } from "@/components/share-buttons";
 import {
   getProductByHandle,
   mockProducts,
@@ -176,6 +177,9 @@ export default async function ProductPage({ params }: Props) {
                 ({product.reviewCount.toLocaleString()} reviews)
               </span>
             </div>
+
+            {/* Share */}
+            <ShareButtons product={product} />
 
             {/* Price */}
             <div className="space-y-1">

@@ -1,4 +1,10 @@
+# robots.txt for oceanahemp.com
 User-agent: *
 Allow: /
+
+# Disallow admin/cart API routes and private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
 
 Sitemap: https://oceanahemp.com/sitemap.xml
