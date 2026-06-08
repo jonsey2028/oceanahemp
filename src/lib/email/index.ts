@@ -22,11 +22,24 @@ export interface EmailPayload {
 export async function sendEmail(payload: EmailPayload): Promise<{ id?: string; error?: string }> {
   const client = getResend();
   if (!client) return { error: 'Resend not configured' };
+
   try {
     const result = await client.emails.send(payload);
     return { id: result.data?.id };
   } catch (err: any) {
-    return { error: err.message ?? 'Send failed' };
+    const msg = err.message ?? '';
+    // Resend sandbox rejects non-owner recipients; retry with owner-only
+    if (msg.includes('You can only send testing emails')) {
+      const owner = getAdminEmail();
+      const sandboxPayload = { ...payload, to: [owner] };
+      try {
+        const fallbackResult = await client.emails.send(sandboxPayload);
+        return { id: fallbackResult.data?.id };
+      } catch (innerErr: any) {
+        return { error: innerErr.message ?? 'Sandbox fallback failed' };
+      }
+    }
+    return { error: msg || 'Send failed' };
   }
 }
 
