@@ -5,6 +5,7 @@ import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CartProvider } from "@/lib/cart-context";
+import { ExitIntentPopup } from "@/components/exit-intent-popup";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -149,6 +150,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <Toaster position="bottom-right" />
+          <ExitIntentPopup />
         </CartProvider>
       </body>
     </html>

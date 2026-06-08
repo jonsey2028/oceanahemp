@@ -13,6 +13,8 @@
     "@shopify/storefront-api-client": "^1.0.10",
     "@stripe/stripe-js": "^9.4.0",
     "@types/nodemailer": "^8.0.0",
+    "@vercel/postgres": "^0.10.0",
+    "better-sqlite3": "^12.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

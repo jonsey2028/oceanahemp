@@ -27,7 +27,7 @@ const trustBadges = [
 ];
 
 export default function CheckoutPage() {
-  const { items, subtotal, clearCart } = useCart();
+  const { items, subtotal, clearCart, hydrated } = useCart();
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -48,6 +48,28 @@ export default function CheckoutPage() {
 
   const shipping = subtotal >= 75 ? 0 : 5.99;
   const total = subtotal + shipping;
+
+  // Loading state while cart hydrates from localStorage
+  if (!hydrated) {
+    return (
+      <div>
+        <section className="bg-ocean-foam wave-divider">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+            <h1 className="font-heading text-3xl sm:text-4xl font-bold text-ocean-deep">Checkout</h1>
+            <p className="mt-2 text-slate text-lg">Preparing your order</p>
+          </div>
+        </section>
+        <section className="py-20 lg:py-32 bg-white">
+          <div className="max-w-lg mx-auto px-4 text-center">
+            <div className="w-28 h-28 mx-auto mb-8 rounded-full bg-ocean-foam flex items-center justify-center">
+              <Loader2 className="h-10 w-10 text-ocean-mid animate-spin" />
+            </div>
+            <h2 className="font-heading text-xl font-bold text-ocean-deep">Loading your cart...</h2>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   if (items.length === 0 && !submitted) {
     return (
