@@ -23,9 +23,7 @@ function getShareUrls(product: Product, currentUrl: string) {
     twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
     pinterest: `https://pinterest.com/pin/create/button/?url=${url}&media=${image}&description=${description}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-    email: `mailto:?subject=${title}&body=${text}%0A%0A${url}`,
     whatsapp: `https://wa.me/?text=${text}%20${url}`,
-    telegram: `https://t.me/share/url?url=${url}&text=${text}`,
   };
 }
 
@@ -107,10 +105,10 @@ export function ShareButtons({ product, className = "", currentUrl }: ShareButto
     }
   };
 
-  const buttons = [
+  const buttons: ShareButtonDef[] = [
     { name: "X", icon: XIcon, url: urls.twitter, color: "text-black hover:bg-gray-100" },
     { name: "Facebook", icon: FacebookIcon, url: urls.facebook, color: "text-[#1877F2] hover:bg-[#1877F2]/10" },
-    { name: "Instagram", icon: InstagramIcon, url: undefined, color: "text-[#E4405F] hover:bg-[#E4405F]/10" },
+    { name: "Instagram", icon: InstagramIcon, url: undefined, onClick: undefined, color: "text-[#E4405F] hover:bg-[#E4405F]/10" },
     { name: "Pinterest", icon: PinterestIcon, url: urls.pinterest, color: "text-[#BD081C] hover:bg-[#BD081C]/10" },
     { name: "LinkedIn", icon: LinkedInIcon, url: urls.linkedin, color: "text-[#0A66C2] hover:bg-[#0A66C2]/10" },
     { name: "WhatsApp", icon: WhatsAppIcon, url: urls.whatsapp, color: "text-[#25D366] hover:bg-[#25D366]/10" },
