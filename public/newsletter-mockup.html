@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oceana Hemp Newsletter — June 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #eef2f5;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    .email-wrapper {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .header {
+      background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+      padding: 32px 24px;
+      text-align: center;
+      color: #fff;
+    }
+    .header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .content {
+      padding: 32px 28px;
+    }
+    .greeting {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .greeting strong {
+      color: #0f3460;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 24px;
+    }
+    .feature-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-left: 5px solid #4caf50;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .feature-box h2 {
+      font-size: 1.3rem;
+      color: #1b5e20;
+      margin-bottom: 10px;
+    }
+    .feature-box p {
+      color: #2e7d32;
+      margin-bottom: 16px;
+    }
+    .price-tag {
+      display: inline-block;
+      background: #fff;
+      color: #e94560;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+    .price-tag .was {
+      font-size: 0.9rem;
+      color: #888;
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(233,69,96,0.3);
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover {
+      transform: scale(1.03);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: #fff;
+      color: #833ab4;
+      border: 2px solid #833ab4;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background: #833ab4;
+      color: #fff;
+    }
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 28px 0;
+    }
+    .social-box {
+      text-align: center;
+      padding: 24px;
+      background: #fafafa;
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+    .social-box h3 {
+      font-size: 1.15rem;
+      color: #16213e;
+      margin-bottom: 10px;
+    }
+    .social-box p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .insta-embed {
+      width: 100%;
+      max-width: 320px;
+      height: 320px;
+      background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+      border: 2px dashed #ddd;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    .footer {
+      background: #f6f8fa;
+      padding: 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .footer a {
+      color: #0f3460;
+      text-decoration: none;
+    }
+    @media (max-width: 480px) {
+      .content { padding: 24px 18px; }
+      .cta-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="header">
+      <h1>OCEANA HEMP</h1>
+      <p>California-grown. Third-party tested. Farm direct.</p>
+    </div>
+
+    <div class="content">
+      <p class="greeting">Hi there, <strong>friend</strong> —</p>
+      <p class="lead">We built the Starter Basket so you do not have to guess what works. Three products, one price, shipped free from Encinitas.</p>
+
+      <div class="feature-box">
+        <h2>The CBD Starter Basket</h2>
+        <p>Full-Spectrum CBD Oil (1000mg) + Relief Salve (500mg) + Sleep Gummies (25mg x 10)</p>
+        <div class="price-tag">$125 <span class="was">$174</span></div>
+        <br/>
+        <div class="cta-row">
+          <a href="https://www.oceanahemp.com/checkout?product=cbd-starter-basket&price=125" class="btn-primary">Buy Now — $125</a>
+          <a href="https://instagram.com/oceanahemp" target="_blank" class="btn-secondary">Follow on Instagram</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="social-box">
+        <h3>Now on Instagram</h3>
+        <p>We are sharing farm updates, customer stories, and new drops before they hit the site. Follow us and tag a friend who needs to chill out.</p>
+        <div class="insta-embed">[Instagram feed preview placeholder]</div>
+        <a href="https://instagram.com/oceanahemp" target="_blank" class="btn-secondary">@oceanahemp on Instagram</a>
+      </div>
+
+      <p style="font-size:0.9rem; color:#666; text-align:center; margin-top:8px;">
+        Forward this to someone who still thinks CBD is a scam. We will change their mind.
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>Oceana Hemp · 1106 2nd St #126, Encinitas, CA 92024</p>
+      <p>
+        <a href="https://www.oceanahemp.com/unsubscribe">Unsubscribe</a> ·
+        <a href="https://www.oceanahemp.com">Visit Store</a> ·
+        <a href="mailto:hello@oceanahemp.com">Contact</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

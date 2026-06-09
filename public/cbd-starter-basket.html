@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oceana Hemp CBD Starter Basket — $125</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f6f8fa;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+      color: #fff;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .badge {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .price-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .price {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: #4cc9f0;
+    }
+    .price-strike {
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: line-through;
+    }
+    .savings {
+      background: rgba(255,255,255,0.15);
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(233,69,96,0.35);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(233,69,96,0.45);
+    }
+    .guarantee {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: #16213e;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+    .product-img {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .product-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #16213e;
+      margin-bottom: 8px;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .product-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f3460;
+    }
+    .included-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #4cc9f0;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(76,201,240,0.3);
+    }
+    .bundle-bar {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      margin-bottom: 40px;
+    }
+    .bundle-bar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #16213e;
+    }
+    .bundle-bar .big-cta {
+      display: inline-block;
+      background: linear-gradient(90deg, #e94560 0%, #ff6b6b 100%);
+      color: #fff;
+      padding: 20px 56px;
+      border-radius: 50px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(233,69,96,0.35);
+      transition: all 0.2s;
+    }
+    .big-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 36px rgba(233,69,96,0.45);
+    }
+    .fine-print {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 24px;
+    }
+    .instagram-cta {
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .instagram-cta h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .instagram-cta p {
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+    .insta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #833ab4;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .price { font-size: 2.4rem; }
+      .products { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="badge">Limited Intro Offer</div>
+        <h1>CBD Starter Basket</h1>
+        <p class="subtitle">Three essential Oceana Hemp products, curated for first-time customers who want to feel the difference without guessing.</p>
+        <div class="price-wrap">
+          <span class="price-strike">$174</span>
+          <span class="price">$125</span>
+        </div>
+        <div class="savings">You save $49 (28% off)</div>
+        <br/>
+        <a href="https://www.oceanahemp.com/checkout?product=cbd-starter-basket&price=125" class="cta-btn">Add to Cart — $125</a>
+        <p class="guarantee">30-day satisfaction guarantee. Free shipping included.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">What is inside your basket</h2>
+    <div class="products">
+      <div class="product-card">
+        <div class="included-badge">Inc.</div>
+        <div class="product-img">🌿</div>
+        <h3>Full-Spectrum CBD Oil — 1000mg</h3>
+        <p>Organic hemp extract in MCT oil. Natural, unflavored. Drop under the tongue or blend into your morning routine.</p>
+        <div class="product-price">$79 value</div>
+      </div>
+      <div class="product-card">
+        <div class="included-badge">Inc.</div>
+        <div class="product-img">🧴</div>
+        <h3>CBD Relief Salve — 500mg</h3>
+        <p>Targeted topical for sore muscles and joints. Beeswax, shea butter, arnica, and full-spectrum hemp extract.</p>
+        <div class="product-price">$55 value</div>
+      </div>
+      <div class="product-card">
+        <div class="included-badge">Inc.</div>
+        <div class="product-img">💤</div>
+        <h3>CBD Sleep Gummies — 25mg each</h3>
+        <p>10-count pouch. Melatonin-free. Calm your nervous system naturally and wake up clear-headed.</p>
+        <div class="product-price">$40 value</div>
+      </div>
+    </div>
+
+    <div class="bundle-bar">
+      <h2>Total basket value: $174</h2>
+      <p style="font-size:1.2rem; color:#555; margin-bottom:20px;">Introductory price: <strong style="color:#e94560; font-size:1.4rem;">$125</strong> + free shipping</p>
+      <a href="https://www.oceanahemp.com/checkout?product=cbd-starter-basket&price=125" class="big-cta">Claim My Starter Basket — $125</a>
+      <p class="fine-print">One per customer. Offer valid while supplies last. Ships within 48 hours from Encinitas, CA.</p>
+    </div>
+
+    <div class="instagram-cta">
+      <h3>Follow @oceanahemp on Instagram</h3>
+      <p>See how real customers use their Starter Basket, behind-the-scenes from the farm, and new product drops first.</p>
+      <a href="https://instagram.com/oceanahemp" target="_blank" class="insta-btn">Follow on Instagram</a>
+    </div>
+  </div>
+</body>
+</html>
